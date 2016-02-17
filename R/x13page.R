@@ -13,16 +13,11 @@ print.x13page <- function(x){
   m <- eval(parse(text = x$cstr), envir = globalenv())
   cat("Model: ", x$cstr, "\n")
   cat("View:  ", x$view)
-  x13view(m, x$view)
-}
 
-#' @export
-x13view <- function(x, view){
-  # this will also deal with the website specific views, such as 'main'
-  if (view == 'main') {
-    dta <- cbind(raw = original(x), adjusted = final(x))
+  if (x$view == 'main') {
+    dta <- cbind(raw = original(m), adjusted = final(m))
     return(xplot(dta))
   }
-  s <- series(x, series = view)
-  xplot(s, ylab = view)
+  s <- series(m, series = x$view)
+  xplot(s, ylab = x$view)
 }

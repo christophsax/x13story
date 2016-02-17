@@ -10,7 +10,7 @@ xplot <- function(x, ylab = NULL, family = "Palatino", legend.pos = "bottomright
   if (n == 1){
     return({
       if (is.null(ylab)) ylab <- nm
-      plot(AirPassengers, xlab="", ylab = ylab, bty = "n", axes = FALSE, family = family, ...)
+      plot(x, xlab="" , ylab = ylab, bty = "n", axes = FALSE, family = family, ...)
       axis(1, tick = FALSE, family = family)
       axis(2, tick = FALSE, family = family)
       grid()
