@@ -1,0 +1,13 @@
+Package: x13story
+Type: Package
+Title: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
+Version: 0.0.1
+Date: 2016-02-11
+Author: James Livsey, Christoph Sax
+Maintainer: Christoph Sax <christoph.sax@gmail.com>
+Description: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
+Depends:
+    seasonal,
+    rmarkdown
+License: GPL-3
+RoxygenNote: 5.0.1
