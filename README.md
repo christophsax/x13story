@@ -12,7 +12,4 @@ to commit your changes and syncronize.
 
 Installation only:
 
-install_github(repo, username = NULL, ref = "master", subdir = NULL,
-  auth_token = github_pat(quiet)
-
     devtools::install_github("christophsax/x13story", auth_token = "be49492ea2bfbd36e8684c394607a9f8e2caad83")
