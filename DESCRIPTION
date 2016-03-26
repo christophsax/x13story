@@ -8,6 +8,8 @@ Maintainer: Christoph Sax <christoph.sax@gmail.com>
 Description: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 Depends:
     seasonal,
-    rmarkdown
+    rmarkdown,
+    xtable,
+    texreg
 License: GPL-3
 RoxygenNote: 5.0.1

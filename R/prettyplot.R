@@ -1,6 +1,6 @@
 
  #' @export
-xplot <- function(x, ylab = NULL, family = "Palatino", legend.pos = "bottomright", ...){
+prettyplot <- function(x, ylab = NULL, family = "Palatino", legend.pos = "bottomright", ...){
   nm <- deparse(substitute(x))
 
   op <- par(family = family)
