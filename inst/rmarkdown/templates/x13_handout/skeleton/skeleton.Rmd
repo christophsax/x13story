@@ -150,6 +150,27 @@ outputs of X-13 and seasonal printer friendly. These functions start with
 Here are some examples:
 
 
+```{r}
+library(x13story)
+m <- seas(AirPassengers, x11 = "")
+x11.seasonal <- series(m, 'x11.seasonal')
+```
+
+
+```{r myLabel1, echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the prettyplot function"}
+prettyplot(x11.seasonal)
+```
+
+```{r, echo = FALSE, results='asis'}
+prettysummary(m, "An example of the prettysummary function")
+```
+
+```{r, echo = FALSE, results='asis'}
+m2 <- m
+prettysummary2(m, m2)
+```
+
+
 
 ## Popularize: Creating an interactive lesson
 
@@ -167,47 +188,4 @@ output is ignored. If you want to include code in the HTML description, use non
 R codes in markdown.
 
 
-
-```{r}
-library(x13story)
-m <- seas(AirPassengers, x11 = "")
-x11.seasonal <- series(m, 'x11.seasonal')
-```
-
-
-```{r myLabel1, echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the prettyplot function"}
-prettyplot(x11.seasonal)
-```
-
-
-We omit the specific choice of weights for each moving average [to learn more
-about this see another "story"] and instead will refer to a moving averages by
-whether or not they estimate a trend (trend moving average) or a seasonal
-component (seasonal moving average)
-
-
-### Apply trend Moving Average
-
-The first component that gets estimated is the trend/cycle component. It gets
-estimated by applying a moving average filter speficially for trends. An example
-of an estimated trend/cycle component is displayed at the right.
-
-
-```{r, echo = FALSE, results='asis'}
-prettysummary(m, "An example of the prettysummary function")
-```
-
-
-```{r, echo = FALSE, results='asis'}
-m2 <- m
-prettysummary2(m, m2)
-```
-
-
-
-### After Estimating Trent $T_t$ Subtract it!
-
-Recall we have a detrended series that has just had the estimated trend removed. Again we omit the detail of exactly how a seasonal moving average filter looks and acts. 
-
-Notice the *detrended* series is void of long term drift and is centered roughly around zero
 
