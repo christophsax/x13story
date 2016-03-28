@@ -16,6 +16,7 @@
 # }
 
 
+# Jim's comment
 
 #' @export
 seas_stats <- function (x, digits = max(3, getOption("digits") - 3), 
