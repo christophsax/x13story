@@ -27,8 +27,8 @@ x13_handout <- function(...) {
   # z$inherits <- "pdf_document"
   # z
 
-  x13story.sty <- system.file("rmarkdown", "templates", "x13_handout", "resources",
-                              "x13story.sty",
+  x13_handout.sty <- system.file("rmarkdown", "templates", "x13_handout", "skeleton",
+                              "x13_handout.sty",
                                package = "x13story")
 
   # template.tex <- system.file("rmarkdown", "templates", "x13story_article", 
@@ -36,7 +36,7 @@ x13_handout <- function(...) {
   #                            package = "x13story")
 
 # browser()
-  z <- rmarkdown::pdf_document(..., fig_caption = TRUE, includes = includes(in_header = x13story.sty))
+  z <- rmarkdown::pdf_document(..., fig_caption = TRUE, includes = includes(in_header = x13_handout.sty))
 
   # z <- rmarkdown::pdf_document(..., template = template.tex)
 

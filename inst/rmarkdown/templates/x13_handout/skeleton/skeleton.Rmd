@@ -167,7 +167,8 @@ prettysummary(m, "An example of the prettysummary function")
 
 ```{r, echo = FALSE, results='asis'}
 m2 <- m
-prettysummary2(m, m2)
+# something wrong with prettysummary2...
+# prettysummary2(m, m2)
 ```
 
 
