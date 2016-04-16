@@ -27,8 +27,10 @@
 
 
 #' @export
-snapshot <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pdf.summary = FALSE){
-  if (TRUE) {  # storymode "pdf" "web"
+x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pdf.summary = FALSE){
+  x13view.mode = getOption("x13view.mode", "pdf")
+
+  if (x13view.mode == "pdf") {  # storymode "pdf" "web"
 
     # m <- eval(parse(text = z$cstr), envir = globalenv())
 
@@ -48,6 +50,32 @@ snapshot <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pd
       }
       prettyplot(s, ylab = series)
     }
+  } else {
+    ee <- parent.frame()
+    all.obj <- ls(envir = ee)
+    
+    # find out which objects from the parent frame are used in the call.
+    # Its a hack, but it should even work with user defined functions.
+    cl_as_list <- function(cl){
+      z <- as.list(cl)
+      isc <- sapply(z, is.call)
+      z[isc] <- lapply(z[isc], rec_as_list)
+      z
+    }
+    
+    ll <- cl_as_list(m$call)
+    obj.in.call <- unlist(lapply(ll, as.character))
+    obj <- intersect(all.obj, obj.in.call)
+    data <- lapply(obj, get, envir = ee)
+    names(data) <- obj
+    z <- list(m = m, series = series, data = data)
+    class(z) <- "x13view"
+    if (exists("gX13view")){
+      gX13view <<- c(gX13view, list(z))
+    } else {
+      gX13view <<- list(z)
+    }
   }
+  
   
 }
