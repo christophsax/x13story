@@ -3,7 +3,7 @@ Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 
 **this is a very preliminary**
 
-Authors: James Livesey and Christoph Sax
+Authors: James Livsey and Christoph Sax
 
 An R package containing:
 
