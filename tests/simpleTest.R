@@ -22,7 +22,7 @@ if (Sys.getenv("TRAVIS") != ""){
   message("HTML rendering")
   STORIES <- lapply(ff, function(x) x13story::parse_x13story(file = x))
   names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
-  save(STORIES, file = file.path(odir, "stories.RData"))
+  # save(STORIES, file = file.path(odir, "stories.RData"))
 
   message("PDF rendering")
   lapply(ff, function(x) rmarkdown::render(x, x13story::x13story()))
