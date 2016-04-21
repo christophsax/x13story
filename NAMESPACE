@@ -3,6 +3,7 @@
 export(parse_x13story)
 export(prettyplot)
 export(prettysummary)
+export(x13story)
 export(x13view)
 import(rmarkdown)
 import(seasonal)

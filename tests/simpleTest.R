@@ -1,4 +1,5 @@
 library(seasonal)
+
 seas(AirPassengers)
 
 
@@ -8,25 +9,44 @@ if (Sys.getenv("TRAVIS") != ""){
   idir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/stories")
   odir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "out")
 
+
+  message("Testing Skeletton")
+  sk <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/rmarkdown/templates/x13story/skeletton/skeletton.Rmd")
+  sk <- normalizePath(sk)
+  x13story::parse_x13story(file = sk)
+  rmarkdown::render(sk, x13story::x13story())
+
+
   ff <- list.files(idir, pattern = "\\.Rmd$", ignore.case = TRUE, full.names = TRUE)
 
+  message("HTML rendering")
   STORIES <- lapply(ff, function(x) x13story::parse_x13story(file = x))
-
   names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
-
   save(STORIES, file = file.path(odir, "stories.RData"))
+
+  message("PDF rendering")
+  lapply(ff, function(x) rmarkdown::render(x, x13story::x13story()))
+  file.copy(list.files(idir, pattern = "\\.pdf$", ignore.case = TRUE, full.names = TRUE), odir)
+
 }
 
 
 
 
 # library(x13story)
+# library(rmarkdown)
+
 # idir <- file.path("~/git/x13story/inst/stories")
 # odir <- file.path("~/git/x13story/out")
 
 # ff <- list.files(idir, pattern = "\\.Rmd$", ignore.case = TRUE, full.names = TRUE)
 
-# STORIES <- lapply(ff, function(x) x13story::parse_x13story(file = x))
+
+
+
+
+
+# STORIES <- lapply(ff, function(x) x13story::x13story(file = x))
 
 # names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
 

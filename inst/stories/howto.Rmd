@@ -5,7 +5,7 @@ author:
   - name: Christoph Sax and James Livsey
 abstract: >
   An abstract of less than 150 words.
-output: x13story::x13_handout
+output: x13story::x13story
 ---
 
 
