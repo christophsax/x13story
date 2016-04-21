@@ -1,5 +1,6 @@
 ---
 title: Capitalized Title Here
+subtitle: Interactive X-13 Stories
 author:
   - name: James Livsey
     affiliation: United States Census Bureau
@@ -13,15 +14,30 @@ output: x13story::x13_handout
 ---
 
 
-# Discuss, Document, Popularize: An Ideal Workflow
 
-Here, we sketch an ideal workflow to deal with seasonal adjustment problems. As R has become nearly ubiquitous in statistical agencies, and the deployment of X-13 has become a no-brainer, an R based workflow is probably the easiest way to go. It involves three major steps:
+```{r, echo = FALSE, results='asis'}
+x13view(m, "main", pdf.series = FALSE)
+```
+
+## Discuss, Document, Popularize: An Ideal Workflow
+
+
+Here, we sketch an ideal workflow to deal with seasonal adjustment problems. As
+R has become nearly ubiquitous in statistical agencies, and the deployment of
+X-13 has become a no-brainer, an R based workflow is probably the easiest way to
+go. It involves three major steps:
 
 1. For discussion, a good starting point is to use a simple R script that includes data, code and comments. 
-2. For documentation, using markdown and knitr, an R script is easily transfered in a reproducible research document, which can be shared and published as a PDF. 
-3. Finally, with just a few additional tweaks, we can transform such a document into an interactive lesson, which makes it easy to learn about seasonal adjustment, even if you are not using R.
 
-## Discuss: X-13, R and seasonal
+2. For documentation, using markdown and knitr, an R script is easily transfered
+in a reproducible research document, which can be shared and published as a PDF.
+
+3. Finally, with just a few additional tweaks, we can transform such a document
+into an interactive lesson, which makes it easy to learn about seasonal
+adjustment, even if you are not using R.
+
+
+### Discuss: X-13, R and seasonal
 
 As R has become nearly ubiquitous in statistical agencies, R scripts are one of
 the best ways to talk about any statistical problems. R scripts can include code
@@ -82,7 +98,7 @@ Mac or Windows). If you want to make installation of seasonal optional, you can
 start your R script with the following line:
 
 ```
-if (!require(seasonal)) install.packages("seasonal")
+if (!require("seasonal")) install.packages("seasonal"); library(seasonal)
 ```
 
 which ensures you have a working version of X-13 and seasonal on your R
@@ -110,7 +126,7 @@ any statistical problem, and it comes especially handy if you are talking about
 any seasonal adjustment problem.
 
 
-## Document: A reproducible research note
+### Document: A reproducible research note
 
 Having kept your discussion in a single R script, it is very easy to transform
 it into a reproducible research note. RMarkdown is great to use without RStudio.
@@ -147,7 +163,7 @@ outputs of X-13 and seasonal printer friendly. These functions start with
 `prettysummary2`
   : like `prettysummary`, but can be used for multiple models. Gives a nice model comparison table, but needs some more work (and another name) ....
 
-Here are some examples:
+Here are some examples (they wont be show on the Website):
 
 
 ```{r}
@@ -167,8 +183,6 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 508, 461, 390, 432), .Tsp = c(1949, 1960.91666666667, 12), class = "ts")
 
 m <- seas(window(myseries, start = 1955), x11 = "")
-
-
 x11.seasonal <- series(m, 'x11.seasonal')
 ```
 
@@ -180,13 +194,15 @@ prettyplot(x11.seasonal)
 ```{r, echo = FALSE, results='asis'}
 
 x13view(m, "main", pdf.series = FALSE)
-prettysummary(m, "An example of the prettysummary function")
+
+
 ```
 
 ```{r, echo = FALSE, results='asis'}
+
 m2 <- seas(AirPassengers)
 # something wrong with prettysummary2...
-# prettysummary2(m, m2)
+
 ```
 
 `prettyplot`
@@ -199,20 +215,12 @@ x13view(m2, "main")
 ```
 
 
-## Popularize: Creating an interactive lesson
+### Popularize: Creating an interactive lesson
 
 Having set up a reproducible research not, it is only a minor step to create an
 interactive lesson. For this, use the `snapshot` function to generate a snapshot
 of a seasonal adjustment process. The snapshot model needs a `seas` object as an
 argument, together with a view. 
-
-
-```{r}
-# non r - code blocks will be kept in the html output, but they are not evaluated..
-
-x13view(m2, "main")
-
-```
 
 Both the call of the `seas` object and the view will be shown in the interactive
 learning tool. 

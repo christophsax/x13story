@@ -3,10 +3,10 @@
 # file = "/Users/christoph/git/x13story/inst/example/Untitled.Rmd"
 
 
-# parse_x13lesson(file)
+# parse_x13story(file)
 
 #' @export
-parse_x13lesson <- function(file){
+parse_x13story <- function(file){
 
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
@@ -71,12 +71,6 @@ parse_x13lesson <- function(file){
   # add body to x13view list
   l.x13view <- Map(function(e1, e2) {e1$body <- e2; e1}, e1 = l.x13view, e2 = l.x13view.body)
 
-
-  # an x13view object
-  x <- l.x13view[[1]]
-
-  l.x13view <- Map(function(e1, e2) {e1$body <- e2; e1}, e1 = l.x13view, e2 = l.x13view.body)
-
   body_to_html <- function(x){
     x$body.html <- markdown::renderMarkdown(file = NULL, text = x$body)
     x$body <- NULL  # probably not needed anymore
@@ -85,8 +79,18 @@ parse_x13lesson <- function(file){
 
   l.x13view <- lapply(l.x13view, body_to_html)
 
+  # add strucural info to view
+  pp <- length(l.x13view)
+
+  for (p in seq(l.x13view)){
+    l.x13view[[p]]$percent <- 100 * (p / pp)
+    l.x13view[[p]]$first <- p == 1
+    l.x13view[[p]]$last <- p == pp
+  }
+
   attr(l.x13view, "yaml") <- yaml
   class(l.x13view) <- "x13lesson"
+
   l.x13view
 
 }

@@ -16,13 +16,9 @@
 # }
 
 
-# Jim's comment
-
 #' @export
 seas_stats <- function (x, digits = max(3, getOption("digits") - 3), 
                               signif.stars = getOption("show.signif.stars"), ...) {
-
-
 
   z <- list()
 
@@ -70,21 +66,6 @@ seas_stats <- function (x, digits = max(3, getOption("digits") - 3),
 
   z
 
-# do.call(rbind, Map(function(n, x) c(n, x), n = names(z), z))
-
-
-
-
-# colnames(df) <- NULL
-# library(xtable)
-# xtable(df, align = c("l", "r"))
-
-  # if (!is.null(x$err)){
-  #   cat("\n")
-  #   print(x$err)
-  # }
-  # cat("\n")
-  # invisible(x)
 }
 
 
@@ -112,7 +93,7 @@ prettysummary <- function(x, caption = NULL){
   }
 
   if (is.null(caption)){
-    caption = "dfsdfsdf"
+    caption = ""
   }
 
   st <- unlist(seas_stats(m))
