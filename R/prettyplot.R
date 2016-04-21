@@ -4,6 +4,7 @@
 #' @param ylab label (optional)
 #' @param family font family, to be matched with latex font
 #' @param legend.pos  position of the legend
+#' @param ... further arguments
 #' @export 
 prettyplot <- function(x, ylab = NULL, family = "Palatino", legend.pos = "bottomright", ...){
   nm <- deparse(substitute(x))

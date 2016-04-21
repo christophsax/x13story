@@ -1,1 +1,2 @@
-x13binary::checkX13binary()
+library(seasonal)
+seas(AirPassengers)
