@@ -22,8 +22,9 @@ if (Sys.getenv("TRAVIS") != ""){
   message("HTML rendering")
   STORIES <- lapply(ff, function(x) x13story::parse_x13story(file = x))
   names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
-  save(STORIES, file = file.path(odir, "stories.RData"))
+  # save(STORIES, file = file.path(odir, "stories.RData"))
 
+  write.csv(cars, file = file.path(odir, "cars2.csv"))
   message("PDF rendering")
   lapply(ff, function(x) rmarkdown::render(x, x13story::x13story()))
   ipdf <- list.files(idir, pattern = "\\.pdf$", ignore.case = TRUE, full.names = TRUE)
