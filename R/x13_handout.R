@@ -17,13 +17,12 @@
 #'
 #' @export
 x13_handout <- function(...) {
-  library(x13story)
 
   x13_handout.sty <- system.file("rmarkdown", "templates", "x13_handout", "skeleton",
                               "x13_handout.sty",
                                package = "x13story")
 
-  z <- rmarkdown::pdf_document(..., fig_caption = TRUE, includes = includes(in_header = x13_handout.sty))
+  z <- rmarkdown::pdf_document(..., fig_caption = TRUE, includes = rmarkdown::includes(in_header = x13_handout.sty))
 
   z
 }

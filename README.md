@@ -1,6 +1,8 @@
 Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 ---------------------------------------------------------------
 
+[![Build Status](https://travis-ci.org/christophsax/seasonal.svg?branch=master)](https://travis-ci.org/christophsax/seasonal)
+
 **this is a very preliminary**
 
 Authors: James Livesey and Christoph Sax

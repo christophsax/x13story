@@ -16,7 +16,6 @@
 # }
 
 
-#' @export
 seas_stats <- function (x, digits = max(3, getOption("digits") - 3), 
                               signif.stars = getOption("show.signif.stars"), ...) {
 
@@ -71,7 +70,10 @@ seas_stats <- function (x, digits = max(3, getOption("digits") - 3),
 
 
 
-
+#' A PDF summary function for seasonal
+#'
+#' @param x an object of class \code{"seas"}
+#' @param caption character string containing the caption
 #' @export
 prettysummary <- function(x, caption = NULL){
   stopifnot(inherits(x, "seas"))

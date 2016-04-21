@@ -10,6 +10,8 @@ Depends:
     seasonal,
     rmarkdown
 Imports:
-    xtable
+    xtable,
+    seasonal,
+    rmarkdown
 License: GPL-3
 RoxygenNote: 5.0.1

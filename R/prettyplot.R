@@ -1,5 +1,10 @@
-
- #' @export
+#' A more Tufte-like plot
+#'
+#' @param x a time series
+#' @param y label (optional)
+#' @param font family, to be matched with latex font
+#' @param legend.pos  position of the legend
+#' @export 
 prettyplot <- function(x, ylab = NULL, family = "Palatino", legend.pos = "bottomright", ...){
   nm <- deparse(substitute(x))
 

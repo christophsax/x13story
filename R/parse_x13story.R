@@ -1,17 +1,16 @@
+gX13view <<- NULL
 
-
-# file = "/Users/christoph/git/x13story/inst/example/Untitled.Rmd"
-
-
-# parse_x13story(file)
-
+#' Prepare an .Rmd file for use in the interactive tools
+#' 
+#' @param file path
+#' @import rmarkdown
 #' @export
 parse_x13story <- function(file){
+  # file = "/Users/christoph/git/x13story/inst/example/Untitled.Rmd"
 
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
-  library(knitr)
-  purl(file, output=tempR)
+  knitr::purl(file, output=tempR)
 
   # we don't want graphic output, so sending it to the pdf device is a workaround
   op <- options(x13view.mode = "html", device = "pdf")  
@@ -34,7 +33,7 @@ parse_x13story <- function(file){
 
   # rmarkdown:::read_lines_utf8   
   lines <- readLines(file)
-  yaml <- rmarkdown:::parse_yaml_front_matter(lines)
+  yaml <- rmarkdown::parse_yaml_front_matter(lines)
 
 
   lno.ticks <- grep("```", lines)
