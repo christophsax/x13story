@@ -1,13 +1,9 @@
 ---
-title: "Capitalized Title Here"
-shorttitle: "The X-11 Method"
+title: "The X-11 Method"
+subtitle: A sightly more detailed subtitle here
 author:
   - name: "James Livsey"
     affiliation: United States Census Bureau
-    address:
-    - line 1
-    - line 2
-    email:  author1@work
 abstract: >
   An abstract of less than 150 words.
 output: x13story::x13_handout

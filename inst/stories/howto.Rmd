@@ -1,13 +1,8 @@
 ---
-title: Capitalized Title Here
-subtitle: Interactive X-13 Stories
+title: Story guide
+subtitle: How to wirte an interactive story
 author:
-  - name: James Livsey
-    affiliation: United States Census Bureau
-    address:
-    - line 1
-    - line 2
-    email:  author1@work
+  - name: Christoph Sax and James Livsey
 abstract: >
   An abstract of less than 150 words.
 output: x13story::x13_handout
@@ -16,7 +11,7 @@ output: x13story::x13_handout
 
 
 ```{r, echo = FALSE, results='asis'}
-x13view(m, "main", pdf.series = FALSE)
+x13view(m, "main")
 ```
 
 ## Discuss, Document, Popularize: An Ideal Workflow
@@ -193,7 +188,7 @@ prettyplot(x11.seasonal)
 
 ```{r, echo = FALSE, results='asis'}
 
-x13view(m, "main", pdf.series = FALSE)
+x13view(m, "main")
 
 
 ```

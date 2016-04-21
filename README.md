@@ -9,15 +9,15 @@ Authors: James Livsey and Christoph Sax
 
 An R package containing:
 
-- X-13 stories: R markdown documents to describing various aspects of seasonal 
+- X-13 stories: R markdown documents that describe various aspects of seasonal 
   adjustment.
 
-- Infrastructure to generate pdfs out of X-13 stories
+- Infrastructure to generate PDFs from X-13 stories.
 
-- Infrastructure to interatively run X-13 stories
+- Infrastructure to interatively run X-13 stories.
 
 
-Update stories in `inst/stories` to trigger automatic rendering on Travis. After
+Update stories in [https://github.com/christophsax/x13story/tree/master/inst/stories](`inst/stories`) to trigger automated rendering on Travis. After
 successful rendering, they should be shown on the website.
 
 
