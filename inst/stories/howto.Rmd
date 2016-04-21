@@ -11,6 +11,7 @@ output: x13story::x13_handout
 
 
 ```{r, echo = FALSE, results='asis'}
+m <- seas(AirPassengers)
 x13view(m, "main")
 ```
 
@@ -134,7 +135,7 @@ comments to markdown text and put the R code into R chunks.
 
 *(All the function names are still constantly changing and may well be wrong)*
 
-The *x13tools* package offers several tools to make life easier. 
+The *x13story* package offers several tools to make life easier. 
 
 It contains an RMarkdown template, `x13_handout` *(not done yet)*, specifically
 optimized for time series problems, by using wider figure margins and a unified
@@ -154,9 +155,6 @@ outputs of X-13 and seasonal printer friendly. These functions start with
 
 `prettysummary`
   : like `summary`, but returning a nice Latex table. 
-
-`prettysummary2`
-  : like `prettysummary`, but can be used for multiple models. Gives a nice model comparison table, but needs some more work (and another name) ....
 
 Here are some examples (they wont be show on the Website):
 

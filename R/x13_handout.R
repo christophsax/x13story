@@ -15,7 +15,8 @@
 #' }
 #'
 #' @import rmarkdown
-x13_handout <- function(...) {
+#' @export
+x13handout <- function(...) {
 
   x13_handout.sty <- system.file("rmarkdown", "templates", "x13_handout", "skeleton",
                               "x13_handout.sty",
