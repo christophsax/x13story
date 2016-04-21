@@ -9,7 +9,7 @@ x13view(m, series = "main")
 \arguments{
 \item{m}{an object of class \code{"seas"}}
 
-\item{caption}{character string indicating which series to show (see
+\item{series}{character string indicating which series to show (see
 \code{?series})}
 }
 \description{

@@ -10,11 +10,11 @@ prettyplot(x, ylab = NULL, family = "Palatino",
 \arguments{
 \item{x}{a time series}
 
+\item{ylab}{label (optional)}
+
+\item{family}{font family, to be matched with latex font}
+
 \item{legend.pos}{position of the legend}
-
-\item{y}{label (optional)}
-
-\item{font}{family, to be matched with latex font}
 }
 \description{
 A more Tufte-like plot
