@@ -10,7 +10,7 @@ if (Sys.getenv("TRAVIS") != ""){
 
   ff <- list.files(idir, pattern = "\\.Rmd$", ignore.case = TRUE, full.names = TRUE)
 
-  STORIES <- lapply(ff, function(x) x13story::parse_x13lesson(file = x))
+  STORIES <- lapply(ff, function(x) x13story::parse_x13story(file = x))
 
   names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
 
