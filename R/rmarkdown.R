@@ -10,7 +10,7 @@ x13story <- function(fig_width = 5) {
                               "x13story.sty",
                                package = "x13story")
 
-  z <- rmarkdown::pdf_document(fig_caption = TRUE, includes = rmarkdown::includes(in_header = x13_handout.sty))
+  z <- rmarkdown::pdf_document(fig_caption = TRUE, includes = rmarkdown::includes(in_header = x13story.sty))
 
   z
 }
