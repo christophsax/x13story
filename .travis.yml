@@ -14,7 +14,7 @@ deploy:
   bucket: S3 Bucket
   local-dir: out
   upload-dir: x13story
-  acl: private
+  skip_cleanup: true
   on:
     repo: christophsax/x13story
     branch: master
