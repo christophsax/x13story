@@ -4,6 +4,7 @@ gX13view <<- NULL
 #' 
 #' @param file path
 #' @import rmarkdown
+#' @import yaml
 #' @export
 parse_x13story <- function(file){
   # file = "/Users/christoph/git/x13story/inst/stories/x11.Rmd"
@@ -24,7 +25,7 @@ parse_x13story <- function(file){
   x13view.env <- new.env(parent = emptyenv())
 
   options(x13view.env = x13view.env)
-  
+
   assign("l.x13view", NULL, envir = x13view.env)
 
   source(tempR, echo = FALSE)
@@ -36,7 +37,6 @@ parse_x13story <- function(file){
   # to check if everything works as expected
   expected.no.x13view <- length(l.x13view)
 
-  # rmarkdown:::read_lines_utf8   
   lines <- readLines(file)
   yaml.lines <- lines[2:(grep("---", lines)[2] - 1)]
   yaml <- yaml::yaml.load(paste(yaml.lines, collapse = "\n"))

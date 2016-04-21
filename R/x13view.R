@@ -28,7 +28,7 @@
 #' Initialize an interacitve view
 #'
 #' @param m an object of class \code{"seas"}
-#' @param caption character string indicating which series to show (see
+#' @param series character string indicating which series to show (see
 #'   \code{?series})
 #' @export
 #' @import seasonal

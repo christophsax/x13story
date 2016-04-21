@@ -11,7 +11,8 @@ Depends:
     rmarkdown
 Imports:
     xtable,
-    seasonal,
-    rmarkdown
+    knitr,
+    markdown,
+    yaml
 License: GPL-3
 RoxygenNote: 5.0.1

@@ -79,7 +79,6 @@ prettysummary <- function(x, caption = NULL){
   stopifnot(inherits(x, "seas"))
 
   # pdf.coef = TRUE
-  library(xtable)
   options(xtable.comment = FALSE)
   options(xtable.booktabs = TRUE)
   options(xtable.floating = FALSE)
