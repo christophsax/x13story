@@ -25,31 +25,43 @@
 
 
 
-
+#' Initialize an interacitve view
+#'
+#' @param m an object of class \code{"seas"}
+#' @param series character string indicating which series to show (see
+#'   \code{?series})
 #' @export
-x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = FALSE, pdf.summary = FALSE){
+#' @import seasonal
+x13view <- function(m, series = "main"){
   x13view.mode = getOption("x13view.mode", "pdf")
 
   if (x13view.mode == "pdf") {  # storymode "pdf" "web"
 
+    # probably drop the pdf mode for this function at all, its confusing.
+
+    
+    # , pdf.call = FALSE, pdf.series = FALSE, pdf.summary = FALSE
+
+
+
     # m <- eval(parse(text = z$cstr), envir = globalenv())
 
-    if (pdf.summary){
-      prettysummary(m)
-    } 
+    # if (pdf.summary){
+    #   prettysummary(m)
+    # } 
 
-    if (pdf.call){
-      cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
-    }
+    # if (pdf.call){
+    #   cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
+    # }
     
-    if (pdf.series){
-      if (series == 'main') {
-        s <- cbind(raw = original(m), adjusted = final(m))
-      } else {
-        s <- series(m, series = series)
-      }
-      prettyplot(s, ylab = series)
-    }
+    # if (pdf.series){
+    #   if (series == 'main') {
+    #     s <- cbind(raw = original(m), adjusted = final(m))
+    #   } else {
+    #     s <- series(m, series = series)
+    #   }
+    #   prettyplot(s, ylab = series)
+    # }
   } else {
     ee <- parent.frame()
     all.obj <- ls(envir = ee)
@@ -73,10 +85,13 @@ x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = FALSE, pd
     m$series.view = series
     z <- list(m = m, data = data)
     class(z) <- "x13view"
-    if (exists("gX13view")){
-      gX13view <<- c(gX13view, list(z))
+
+    l.x13view <- get("l.x13view", envir = getOption("x13view.env"))
+
+    if (is.null(l.x13view)){
+      assign("l.x13view", list(z), envir = getOption("x13view.env"))
     } else {
-      gX13view <<- list(z)
+      assign("l.x13view", c(l.x13view, list(z)), envir = getOption("x13view.env"))
     }
   }
   

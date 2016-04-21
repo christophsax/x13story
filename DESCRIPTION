@@ -1,15 +1,18 @@
 Package: x13story
 Type: Package
 Title: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
-Version: 0.0.1.1
+Version: 0.0.1.2
 Date: 2016-04-21
 Author: James Livsey, Christoph Sax
 Maintainer: Christoph Sax <christoph.sax@gmail.com>
-Description: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
+Description: Collection of tools to facitilitate the generation of interactive stories on seasonal adjustment with X-13ARIMA-SEATS. Results can be shown both as PDFs or as interactive views.
 Depends:
     seasonal,
-    rmarkdown,
+    rmarkdown
+Imports:
     xtable,
-    texreg
+    knitr,
+    markdown,
+    yaml
 License: GPL-3
 RoxygenNote: 5.0.1

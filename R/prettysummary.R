@@ -16,7 +16,6 @@
 # }
 
 
-#' @export
 seas_stats <- function (x, digits = max(3, getOption("digits") - 3), 
                               signif.stars = getOption("show.signif.stars"), ...) {
 
@@ -71,13 +70,15 @@ seas_stats <- function (x, digits = max(3, getOption("digits") - 3),
 
 
 
-
+#' A PDF summary function for seasonal
+#'
+#' @param x an object of class \code{"seas"}
+#' @param caption character string containing the caption
 #' @export
 prettysummary <- function(x, caption = NULL){
   stopifnot(inherits(x, "seas"))
 
   # pdf.coef = TRUE
-  library(xtable)
   options(xtable.comment = FALSE)
   options(xtable.booktabs = TRUE)
   options(xtable.floating = FALSE)
@@ -96,7 +97,7 @@ prettysummary <- function(x, caption = NULL){
     caption = ""
   }
 
-  st <- unlist(seas_stats(m))
+  st <- unlist(seas_stats(x))
   st <- gsub("^ +| +$", "", st)
 
   ee <- paste0(tex("emph")(names(st)), ": ", st)
@@ -106,8 +107,10 @@ prettysummary <- function(x, caption = NULL){
   z[2] <- paste(ee[5:9], collapse = " -- ")
   str <- paste(paste(tex("multicolumn{5}{c}")((z)), "\\\\\n"), collapse = "")
 
+  sx <- summary(x)
 
-  a <- xtable:::xtable.summary.lm(summary(m), align = c("l", "r", "r", "r", "r"))
+  class(sx) <- "summary.lm"
+  a <- xtable::xtable(sx, align = c("l", "r", "r", "r", "r"))
   
   attr(a, "align") <- c("p{4cm}", "r", "r", "r", "r")
 

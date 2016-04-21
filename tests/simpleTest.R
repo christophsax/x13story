@@ -1,0 +1,2 @@
+library(seasonal)
+seas(AirPassengers)
