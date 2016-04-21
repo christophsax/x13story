@@ -97,7 +97,7 @@ prettysummary <- function(x, caption = NULL){
     caption = ""
   }
 
-  st <- unlist(seas_stats(m))
+  st <- unlist(seas_stats(x))
   st <- gsub("^ +| +$", "", st)
 
   ee <- paste0(tex("emph")(names(st)), ": ", st)

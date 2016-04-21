@@ -15,6 +15,8 @@ prettyplot(x, ylab = NULL, family = "Palatino",
 \item{family}{font family, to be matched with latex font}
 
 \item{legend.pos}{position of the legend}
+
+\item{...}{further arguments}
 }
 \description{
 A more Tufte-like plot
