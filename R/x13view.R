@@ -27,7 +27,7 @@
 
 
 #' @export
-x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pdf.summary = FALSE){
+x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = FALSE, pdf.summary = FALSE){
   x13view.mode = getOption("x13view.mode", "pdf")
 
   if (x13view.mode == "pdf") {  # storymode "pdf" "web"

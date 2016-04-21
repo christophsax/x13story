@@ -1,10 +1,7 @@
 ---
 title: A short title here
-subtitle: A more detailed subtitle on your story
-author:
-  - name: Your Name
-    affiliation: Your Institution
-    email:  author1@work
+subtitle: A sightly more detailed subtitle here
+author: Your Name
 abstract: >
   An abstract of less than 50 words.
 output: x13story::x13_handout
@@ -16,10 +13,9 @@ output: x13story::x13_handout
 library(seasonal)
 m <- seas(AirPassengers)
 
-# initializes a first X-13 view. 
-# 'pdf.series = FALSE' will supress output in the PDF.
+# initializes a first interactive X-13 view.
 
-x13view(m, "main", pdf.series = FALSE)
+x13view(m, "main")
 ```
 
 ## A main header
@@ -32,7 +28,7 @@ book, separating them with `h1` headers (`#`).
 To initiate a new view in the interactive tool, use `x13view()`. The function
 takes an object of class `"seas"` as its first argment, and a chararacter string
 describing the view as its second. For a list of all available views, see
-`?series`. The function also has several options to be specific about what to show in pdf documents; these are ignored in the interactive view.
+`?series`.
 
 ### A sub header
 
@@ -67,7 +63,7 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 559, 463, 407, 362, 405, 417, 391, 419, 461, 472, 535, 622, 606, 
 508, 461, 390, 432), .Tsp = c(1949, 1960.91666666667, 12), class = "ts")
 
-m <- seas(window(myseries, start = 1955), x11 = "")
+m <- seas(myseries, x11 = "")
 
 # initializes a second X-13 view
 x13view(m, 'x11.seasonal')
@@ -90,11 +86,11 @@ Which will set up a view based on your own data.
 Since the following two chuncks are `echo = FALSE` they won't be shown in both the PDF and the interactive view.
 
 
-```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the prettyplot function"}
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of a pretty plot."}
 prettyplot(myseries)
 ```
 
 ```{r, echo = FALSE, results='asis'}
-prettysummary(m)
+prettysummary(m, caption = "An example of a pretty summary.")
 ```
 

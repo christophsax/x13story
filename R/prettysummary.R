@@ -93,7 +93,7 @@ prettysummary <- function(x, caption = NULL){
   }
 
   if (is.null(caption)){
-    caption = "dfsdfsdf"
+    caption = ""
   }
 
   st <- unlist(seas_stats(m))
