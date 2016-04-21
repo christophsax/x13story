@@ -108,8 +108,10 @@ prettysummary <- function(x, caption = NULL){
   z[2] <- paste(ee[5:9], collapse = " -- ")
   str <- paste(paste(tex("multicolumn{5}{c}")((z)), "\\\\\n"), collapse = "")
 
+  sx <- summary(x)
 
-  a <- xtable:::xtable.summary.lm(summary(m), align = c("l", "r", "r", "r", "r"))
+  class(sx) <- "summary.lm"
+  a <- xtable::xtable(sx, align = c("l", "r", "r", "r", "r"))
   
   attr(a, "align") <- c("p{4cm}", "r", "r", "r", "r")
 

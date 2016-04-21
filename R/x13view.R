@@ -31,6 +31,7 @@
 #' @param caption character string indicating which series to show (see
 #'   \code{?series})
 #' @export
+#' @import seasonal
 x13view <- function(m, series = "main"){
   x13view.mode = getOption("x13view.mode", "pdf")
 
@@ -84,10 +85,13 @@ x13view <- function(m, series = "main"){
     m$series.view = series
     z <- list(m = m, data = data)
     class(z) <- "x13view"
-    if (exists("gX13view")){
-      gX13view <<- c(gX13view, list(z))
+
+    l.x13view <- get("l.x13view", envir = getOption("x13view.env"))
+
+    if (is.null(l.x13view)){
+      assign("l.x13view", list(z), envir = getOption("x13view.env"))
     } else {
-      gX13view <<- list(z)
+      assign("l.x13view", c(l.x13view, list(z)), envir = getOption("x13view.env"))
     }
   }
   

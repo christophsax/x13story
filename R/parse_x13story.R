@@ -6,7 +6,7 @@ gX13view <<- NULL
 #' @import rmarkdown
 #' @export
 parse_x13story <- function(file){
-  # file = "/Users/christoph/git/x13story/inst/example/Untitled.Rmd"
+  # file = "/Users/christoph/git/x13story/inst/stories/x11.Rmd"
 
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
@@ -21,11 +21,16 @@ parse_x13story <- function(file){
   # echo = FLASE
   # a <- capture.output(
 
-  source(tempR, echo = FALSE, local = TRUE)
+  x13view.env <- new.env(parent = emptyenv())
 
-  # a global object we get from source, now rescue from the danger zone
-  l.x13view <- gX13view
-  rm("gX13view", envir = globalenv())
+  options(x13view.env = x13view.env)
+  
+  assign("l.x13view", NULL, envir = x13view.env)
+
+  source(tempR, echo = FALSE)
+
+  l.x13view <- get("l.x13view", envir = x13view.env)
+
   # so we have the views. Now we need the same amount of bodys.
 
   # to check if everything works as expected
@@ -33,7 +38,8 @@ parse_x13story <- function(file){
 
   # rmarkdown:::read_lines_utf8   
   lines <- readLines(file)
-  yaml <- rmarkdown::parse_yaml_front_matter(lines)
+  yaml.lines <- lines[2:(grep("---", lines)[2] - 1)]
+  yaml <- yaml::yaml.load(paste(yaml.lines, collapse = "\n"))
 
 
   lno.ticks <- grep("```", lines)
