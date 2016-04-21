@@ -2,7 +2,7 @@
 % Please edit documentation in R/x13_handout.R
 \name{x13_handout}
 \alias{x13_handout}
-\title{X-13 story format.}
+\title{X-13 story format}
 \usage{
 x13_handout(...)
 }

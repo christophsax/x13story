@@ -1,4 +1,3 @@
-gX13view <<- NULL
 
 #' Prepare an .Rmd file for use in the interactive tools
 #' 
@@ -31,8 +30,6 @@ parse_x13story <- function(file){
   source(tempR, echo = FALSE)
 
   l.x13view <- get("l.x13view", envir = x13view.env)
-
-  # so we have the views. Now we need the same amount of bodys.
 
   # to check if everything works as expected
   expected.no.x13view <- length(l.x13view)

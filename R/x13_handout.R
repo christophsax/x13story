@@ -1,8 +1,7 @@
-#' X-13 story format.
+#' X-13 story format
 #'
 #' Format for creating X-13 stories.
 #'
-#' @inheritParams rmarkdown::pdf_document
 #' @param ... Arguments to \code{rmarkdown::pdf_document}
 #'
 #' @return R Markdown output format to pass to
@@ -15,7 +14,7 @@
 #' draft("MyArticle.Rmd", template = "x13_handout", package = "x13story")
 #' }
 #'
-#' @export
+#' @import rmarkdown
 x13_handout <- function(...) {
 
   x13_handout.sty <- system.file("rmarkdown", "templates", "x13_handout", "skeleton",
