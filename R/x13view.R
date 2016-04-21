@@ -59,7 +59,7 @@ x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pdf
     cl_as_list <- function(cl){
       z <- as.list(cl)
       isc <- sapply(z, is.call)
-      z[isc] <- lapply(z[isc], rec_as_list)
+      z[isc] <- lapply(z[isc], cl_as_list)
       z
     }
     
@@ -68,7 +68,10 @@ x13view <- function(m, series = "main", pdf.call = FALSE, pdf.series = TRUE, pdf
     obj <- intersect(all.obj, obj.in.call)
     data <- lapply(obj, get, envir = ee)
     names(data) <- obj
-    z <- list(m = m, series = series, data = data)
+    # we add series.view to the seas object, the same way as we treat it in 
+    # server.R
+    m$series.view = series
+    z <- list(m = m, data = data)
     class(z) <- "x13view"
     if (exists("gX13view")){
       gX13view <<- c(gX13view, list(z))

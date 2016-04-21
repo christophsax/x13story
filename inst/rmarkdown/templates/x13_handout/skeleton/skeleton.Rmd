@@ -1,52 +1,64 @@
 ---
-title: Capitalized Title Here
+title: A short title here
+subtitle: A more detailed subtitle on your story
 author:
-  - name: James Livsey
-    affiliation: United States Census Bureau
-    address:
-    - line 1
-    - line 2
+  - name: Your Name
+    affiliation: Your Institution
     email:  author1@work
 abstract: >
-  An abstract of less than 150 words.
+  An abstract of less than 50 words.
 output: x13story::x13_handout
 ---
 
 
-# Discuss, Document, Popularize: An Ideal Workflow
 
-Here, we sketch an ideal workflow to deal with seasonal adjustment problems. As R has become nearly ubiquitous in statistical agencies, and the deployment of X-13 has become a no-brainer, an R based workflow is probably the easiest way to go. It involves three major steps:
+```{r, echo = FALSE}
+library(seasonal)
+m <- seas(AirPassengers)
 
-1. For discussion, a good starting point is to use a simple R script that includes data, code and comments. 
-2. For documentation, using markdown and knitr, an R script is easily transfered in a reproducible research document, which can be shared and published as a PDF. 
-3. Finally, with just a few additional tweaks, we can transform such a document into an interactive lesson, which makes it easy to learn about seasonal adjustment, even if you are not using R.
+# initializes a first X-13 view. 
+# 'pdf.series = FALSE' will supress output in the PDF.
 
-## Discuss: X-13, R and seasonal
+x13view(m, "main", pdf.series = FALSE)
+```
 
-As R has become nearly ubiquitous in statistical agencies, R scripts are one of
-the best ways to talk about any statistical problems. R scripts can include code
-(of course), but also comments and data.
+## A main header
 
-The last point is underused in practice, but brings enormous benefits in terms
-of sharing any statistical problem. Using the `dput()` function from R base on
-any object, it writes a text representation to the console, which can be copy-
-pasted into your script. For example,
+This is a template for X-13 stories, descriptions of seasonal adjustment issues that can be turned into pdf's or into interactive HTML stories. For a more extensive description of the approach, see our paper.
+
+Use `h2` header (`##`) as top headers, so you can wrap several stories in a
+book, separating them with `h1` headers (`#`).
+
+To initiate a new view in the interactive tool, use `x13view()`. The function
+takes an object of class `"seas"` as its first argment, and a chararacter string
+describing the view as its second. For a list of all available views, see
+`?series`. The function also has several options to be specific about what to show in pdf documents; these are ignored in the interactive view.
+
+### A sub header
+
+You can use arbitrary code in your document, which is not evaluated.
 
 ```
 dput(AirPassengers)
 
 ``` 
 
-generates the code that represents the `AirPassengers` time series. Copy-
-pasted, the equivalent would be:
+You can also used math both for pdfs and and the interactive view:
 
+$$X_t = T_t + S_t + I_t$$ 
 
-```
+Inlined math, $E = mc^2$, is possible as well.
+
+You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
+
+```{r, echo = FALSE, fig.width = 10, fig.height = 6}
+library(x13story)
+
 myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119, 
-104, 118, 115, 126, 141, 135, 125, 149, 170, 170, 158, 133, 114, 
+55, 55, 55, 55, 55, 135, 125, 149, 170, 170, 158, 133, 114, 
 140, 145, 150, 178, 163, 172, 178, 199, 199, 184, 162, 146, 166, 
 171, 180, 193, 181, 183, 218, 230, 242, 209, 191, 172, 194, 196, 
-196, 236, 235, 229, 243, 264, 272, 237, 211, 180, 201, 204, 188, 
+196, 236, 235, 229, 88, 264, 272, 237, 211, 180, 201, 204, 188, 
 235, 227, 234, 264, 302, 293, 259, 229, 203, 229, 242, 233, 267, 
 269, 270, 315, 364, 347, 312, 274, 237, 278, 284, 277, 317, 313, 
 318, 374, 413, 405, 355, 306, 271, 306, 315, 301, 356, 348, 355, 
@@ -54,85 +66,16 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 491, 505, 404, 359, 310, 337, 360, 342, 406, 396, 420, 472, 548, 
 559, 463, 407, 362, 405, 417, 391, 419, 461, 472, 535, 622, 606, 
 508, 461, 390, 432), .Tsp = c(1949, 1960.91666666667, 12), class = "ts")
+
+m <- seas(window(myseries, start = 1955), x11 = "")
+
+# initializes a second X-13 view
+x13view(m, 'x11.seasonal')
 ```
 
-Putting your data, your code and your comments into the same R script brings
-enormous benefit in terms of sharing your problem.
+Which will set up a view based on your own data.
 
-1. You can copy-paste your Problem to an email.
-2. You can put it to github, or github gist, or any other code sharing platform
-3. You can put it on your own website.
-4. You can use it in mailing lists or Question/Answer sites such as Stackoverflow or Crossvalidated.
-
-
-The great thing about having data, code and comments in the same document is
-that everybody with a working R installation can run it, even without having
-understood your code.
-
-While this is true for any statistical problem, it is especially true for
-problems with seasonal adjustment. Thanks to `x13binary` and `seasonal`,
-installing the X-13 binaries and a powerful R interface is as easy as:
-
-```
-install.packages("seasonal")
-```
-
-which automatically installs the latest build of X-13 on any platform (Linux,
-Mac or Windows). If you want to make installation of seasonal optional, you can
-start your R script with the following line:
-
-```
-if (!require(seasonal)) install.packages("seasonal")
-```
-
-which ensures you have a working version of X-13 and seasonal on your R
-installation.
-
-Putting your data, your code and your comments into the same R script is
-crucial, but there are a few more things to be aware of:
-
-1. *Never read from local files*. If you really cannot include it in your R
-script (e.g., because it is too large), put a `.csv` file on a fixed URL (Github
-is good for that) and use `read.table` or `read.csv` from R base to directly
-read from there. These functions can take URLs as an arguments, so you can
-directly download from there.
-
-2. *Use as few external packages as possible*. Use R base functions, avoid
-ggplot, dplyr, data.table etc. if possible. Using more packages makes it more
-difficult to get the same environment on somebody else's computer. Also,
-packages that seem familiar to you may not be familiar to somebody else. Basic R
-is the common language that you can expect the other person to be familiar with.
-If you really need packages (e.g., seasonal), install them conditionally, as
-shown above.
-
-A single R script containing code, data and comments is the easiest way to share
-any statistical problem, and it comes especially handy if you are talking about
-any seasonal adjustment problem.
-
-
-## Document: A reproducible research note
-
-Having kept your discussion in a single R script, it is very easy to transform
-it into a reproducible research note. RMarkdown is great to use without RStudio.
-But since it is made by the same people as RStudio, the integration in RStudio
-is even greater. For other platforms, please refer to the the RMarkdown
-vignette.
-
-In order to transform your R script into an RMarkdown document, transform your
-comments to markdown text and put the R code into R chunks.
-
-*(All the function names are still constantly changing and may well be wrong)*
-
-The *x13tools* package offers several tools to make life easier. 
-
-It contains an RMarkdown template, `x13_handout` *(not done yet)*, specifically
-optimized for time series problems, by using wider figure margins and a unified
-font for graphs and text (palatino). However, you are not restricted to it, and
-most functions form the  *x13tools* package also work well with the popular
-`tufte_handout` style, which is included in RStudio.
-
-The *x13tools* package comes with a bunch of functions designed to make the
-outputs of X-13 and seasonal printer friendly. These functions start with
+`x13story` contains some utility functions that are useful for creating pdf's, but are of no use in the interactive view. These functions start with
 `pretty`:
 
 `prettyplot`
@@ -144,49 +87,14 @@ outputs of X-13 and seasonal printer friendly. These functions start with
 `prettysummary`
   : like `summary`, but returning a nice Latex table. 
 
-`prettysummary2`
-  : like `prettysummary`, but can be used for multiple models. Gives a nice model comparison table, but needs some more work (and another name) ....
-
-Here are some examples:
+Since the following two chuncks are `echo = FALSE` they won't be shown in both the PDF and the interactive view.
 
 
-```{r}
-library(x13story)
-m <- seas(AirPassengers, x11 = "")
-x11.seasonal <- series(m, 'x11.seasonal')
-```
-
-
-```{r myLabel1, echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the prettyplot function"}
-prettyplot(x11.seasonal)
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the prettyplot function"}
+prettyplot(myseries)
 ```
 
 ```{r, echo = FALSE, results='asis'}
-prettysummary(m, "An example of the prettysummary function")
+prettysummary(m)
 ```
-
-```{r, echo = FALSE, results='asis'}
-m2 <- m
-# something wrong with prettysummary2...
-# prettysummary2(m, m2)
-```
-
-
-
-## Popularize: Creating an interactive lesson
-
-Having set up a reproducible research not, it is only a minor step to create an
-interactive lesson. For this, use the `snapshot` function to generate a snapshot
-of a seasonal adjustment process. The snapshot model needs a `seas` object as an
-argument, together with a view. 
-
-Both the call of the `seas` object and the view will be shown in the interactive
-learning tool. 
-
-The markdown text that follows after the snapshot function will be included as a
-description of the lesson in HTML. The R chunk you were using to produce pdf
-output is ignored. If you want to include code in the HTML description, use non
-R codes in markdown.
-
-
 

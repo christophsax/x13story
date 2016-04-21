@@ -20,7 +20,7 @@ Format for creating X-13 stories.
 
 \dontrun{
 library(rmarkdown)
-draft("MyArticle.Rmd", template = "x13story_article", package = "x13story")
+draft("MyArticle.Rmd", template = "x13_handout", package = "x13story")
 }
 
 }

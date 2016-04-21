@@ -1,0 +1,100 @@
+---
+title: "The Outlier Spec"
+subtitle: "The Outlier Spec"
+category: "specs"
+author:
+  - name: "U.S. Census Bureau"
+abstract: >
+  An abstract of less than 150 words.
+output: x13story::x13_handout
+---
+
+
+
+```{r, echo = FALSE, fig.width = 11, fig.height = 6}
+library(x13story)
+m <- seas(AirPassengers, 
+     x11 = "",
+     arima.model= "(0 1 1)(0 1 1)12",
+     outlier.lsrun = 5, 
+     outlier.types = c("ao", "ls")
+)
+
+x13view(m, series = "main")
+```
+
+### Example 1
+
+Simultaneously search for both AO and LS outliers over the entire time series,
+using the `addone` method and a critical value that depends on the number of
+observations in the interval searched for outliers (default options). 
+
+If the number of level shifts present in the model following outlier detection
+is two or more, compute t-statistics to test whether each run of 2, ..., 5
+successive level shifts cancels to form a temporary level shift. Though the
+estimate spec is absent, the presence of the outlier spec forces model
+estimation with default estimation options.
+
+
+
+```{r, echo = FALSE, fig.width = 11, fig.height = 6}
+
+m <- seas(AirPassengers, 
+     series.span = c("1950.jan", "1959.dec"),
+     regression.variables = c("ls1951.jun", "ls1952.nov"),
+     arima.model= "(0 1 1)(0 1 1)12",
+     outlier.lsrun = 5, 
+     outlier.types = "ao",
+     outlier.method = "addall",
+     outlier.critical = 4
+)
+
+x13view(m, series = "main")
+```
+
+### Example 2
+
+Search only for AO outliers using the `addall` method and a critical value of $t = 4.0$. Because the span argument is present in the series spec, only the time frame given there (January 1980 through December 1992) is used in model estimation and in outlier detection. The two level shifts specified in the regression spec are not tested for cancelation into a temporary level shift since lsrun takes on its default value of 0.
+
+
+
+
+```{r, echo = FALSE, fig.width = 11, fig.height = 6}
+
+m <- seas(AirPassengers, 
+     series.span = c("1950.jan", "1959.dec"),
+     outlier.types = "ls",
+     outlier.critical = 3,
+     outlier.lsrun = 2, 
+     outlier.span = "1953.jan, 1958.dec"
+)
+
+x13view(m, series = "main")
+```
+
+### Example 3
+
+Estimate the model using the same span as in Example 2, but search only for LS outliers in 1987 and 1988. The default addone method is used, but with a critical value of t = 3.0. Each pair of successive LSs is tested for possible cancelation into a temporary LS.
+
+
+```{r, echo = FALSE, fig.width = 11, fig.height = 6}
+
+m <- seas(AirPassengers, 
+     series.span = c("1950.jan", "1959.dec"),
+     outlier.types = "ls",
+     outlier.critical = 3,
+     outlier.lsrun = 2, 
+     outlier.span = "1953.jan, 1958.dec"
+)
+
+x13view(m, series = "main")
+```
+
+### Example 4
+
+Estimate the model using the same span as in Examples 2 and 3, but search for AO, TC and LS outliers. The default addone method is used, but with a critical value of tAO = 3.0 for AO outliers, tLS = 4.5 for LS outliers, and tT C = 4.0 for TC outliers.
+
+
+
+
+
