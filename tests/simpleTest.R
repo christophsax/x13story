@@ -26,7 +26,9 @@ if (Sys.getenv("TRAVIS") != ""){
 
   message("PDF rendering")
   lapply(ff, function(x) rmarkdown::render(x, x13story::x13story()))
-  file.copy(list.files(idir, pattern = "\\.pdf$", ignore.case = TRUE, full.names = TRUE), odir)
+  ipdf <- list.files(idir, pattern = "\\.pdf$", ignore.case = TRUE, full.names = TRUE)
+
+  file.copy(ipdf, file.path(odir, basename(ipdf)))
 
 }
 
