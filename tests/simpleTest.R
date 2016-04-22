@@ -52,7 +52,7 @@ if (Sys.getenv("TRAVIS") != ""){
   </html>
   '
   bn <- basename(ipdf)
-  bn.link <- paste0("http://www.chirstophsax.com/x13story/", bn)
+  bn.link <- paste0("http://www.christophsax.com/x13story/", bn)
   body <- paste0('<a href = "',bn.link ,'">',bn ,'</a>')
   writeLines(c(header, body, footer), file.path(odir, "index.html"))
 
