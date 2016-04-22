@@ -31,26 +31,27 @@ if (Sys.getenv("TRAVIS") != ""){
 
   file.copy(ipdf, file.path(odir, basename(ipdf)))
 
+
+  # add a minimal index.html to link PDFs
+  header <- '
+  <!DOCTYPE html>
+  <html>
+  <head>
+     <meta charset="utf-8">
+     <!-- tell google not to index or follow -->
+     <meta name="robots" content="noindex,nofollow"/>
+  </head>
+  '
+  footer <- '
+  </body>
+  </html>
+  '
+  bn <- basename(ipdf)
+  bn <- paste0(gsub(".Rmd", "", bn, ignore.case = TRUE), ".pdf")
+  bn.link <- paste0("http://www.chirstophsax.com/x13story/", bn)
+  body <- paste0('<a href = "',bn.link ,'">',bn ,'</a>')
+  writeLines(c(header, body, footer), file.path(odir, "index.html"))
+
 }
 
 
-
-
-# library(x13story)
-# library(rmarkdown)
-
-# idir <- file.path("~/git/x13story/inst/stories")
-# odir <- file.path("~/git/x13story/out")
-
-# ff <- list.files(idir, pattern = "\\.Rmd$", ignore.case = TRUE, full.names = TRUE)
-
-
-
-
-
-
-# STORIES <- lapply(ff, function(x) x13story::x13story(file = x))
-
-# names(STORIES) <- gsub("(.+?)\\..+", "\\1", basename(ff))
-
-#  
