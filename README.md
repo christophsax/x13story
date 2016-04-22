@@ -30,7 +30,7 @@ To install this package from Github:
 To create a fresh template in an arbitrary R environment, use:
 
     library(x13story)
-    draft("MyArticle.Rmd", template = "x13_handout", package = "x13story")
+    draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
 
 In the latest version of RStudio, you can select the template from the menu.

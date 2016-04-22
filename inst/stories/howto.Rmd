@@ -137,7 +137,7 @@ comments to markdown text and put the R code into R chunks.
 
 The *x13story* package offers several tools to make life easier. 
 
-It contains an RMarkdown template, `x13_handout` *(not done yet)*, specifically
+It contains an RMarkdown template, `x13story`, specifically
 optimized for time series problems, by using wider figure margins and a unified
 font for graphs and text (palatino). However, you are not restricted to it, and
 most functions form the  *x13tools* package also work well with the popular
