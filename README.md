@@ -18,7 +18,7 @@ An R package containing:
 
 
 Update stories in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) to trigger automated rendering on Travis. After
-successful rendering, they should be shown on the website.
+successful rendering, they should be shown on the website. A test site is located [here](http://52.30.3.168/story3).
 
 
 To install this package from Github:
