@@ -3,9 +3,9 @@ Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 
 [![Build Status](https://travis-ci.org/christophsax/x13story.svg?branch=master)](https://travis-ci.org/christophsax/x13story)
 
-**this is a very, very preliminary!**
+**this is very, very preliminary!**
 
-Authors: James Livsey and Christoph Sax
+Authors: [James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) and [Christoph Sax](http://www.christophsax.com)
 
 An R package containing:
 
