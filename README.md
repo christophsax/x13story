@@ -3,22 +3,29 @@ Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 
 [![Build Status](https://travis-ci.org/christophsax/x13story.svg?branch=master)](https://travis-ci.org/christophsax/x13story)
 
-**this is a very preliminary**
+**this is a very, very preliminary!**
 
 Authors: James Livsey and Christoph Sax
 
 An R package containing:
 
-- X-13 stories: R markdown documents that describe various aspects of seasonal 
-  adjustment.
+- Example X-13 stories: R markdown documents that describe various aspects of
+  seasonal adjustment.
 
 - Infrastructure to generate PDFs from X-13 stories.
 
-- Infrastructure to interatively run X-13 stories.
+- Infrastructure to interactively run X-13 stories on a Website.
 
 
-Update stories in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) to trigger automated rendering on Travis. After
-successful rendering, they should be shown on the website. A test site is located [here](http://52.30.3.168/story3).
+X-13 stories are kept in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) and are rendered automatically both as interactive views and as PDFs. 
+
+To add or modify, update the files on a branch where the build process is tested
+and do a pull request. Only when on `master`, the successful builds are copied
+to:
+
+- Interactive views are shown on this [test site](http://52.30.3.168/story3).
+
+- PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
 
 
 To install this package from Github:
@@ -27,15 +34,15 @@ To install this package from Github:
     devtools::install_github("christophsax/x13story")
 
 
-To create a fresh template in an arbitrary R environment, use:
+To create a fresh X-13 story template in any R environment, use:
 
     library(x13story)
     draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
 
-In the latest version of RStudio, you can select the template from the menu.
+In the latest version of RStudio, you can select the template from the menu:
 
-    New Dokument Symbol > R Markdown ... > From Template > X-13 Handout
+    New Document Symbol > R Markdown ... > From Template > X-13 Handout
 
 
 

@@ -1,12 +1,17 @@
-library(seasonal)
+# --- General Tests ------------------------------------------------------------
 
+library(seasonal)
 seas(AirPassengers)
 
+
+# --- Auto Build and Deploy on Travis ------------------------------------------
 
 if (Sys.getenv("TRAVIS") != ""){
 
   library(x13story)
   idir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/stories")
+
+  # after build, travis copies everything from out to the destination folder
   odir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "out")
 
 
@@ -47,7 +52,6 @@ if (Sys.getenv("TRAVIS") != ""){
   </html>
   '
   bn <- basename(ipdf)
-  bn <- paste0(gsub(".Rmd", "", bn, ignore.case = TRUE), ".pdf")
   bn.link <- paste0("http://www.chirstophsax.com/x13story/", bn)
   body <- paste0('<a href = "',bn.link ,'">',bn ,'</a>')
   writeLines(c(header, body, footer), file.path(odir, "index.html"))
