@@ -4,13 +4,20 @@
 \alias{x13view}
 \title{Initialize an interacitve view}
 \usage{
-x13view(m, series = "main")
+x13view(m, series = "main", pdf.series = TRUE, pdf.call = FALSE,
+  pdf.summary = FALSE)
 }
 \arguments{
 \item{m}{an object of class \code{"seas"}}
 
 \item{series}{character string indicating which series to show (see
 \code{?series})}
+
+\item{pdf.series}{logical, should a series be shown in pdf mode}
+
+\item{pdf.call}{logical, should a call be shown in pdf mode}
+
+\item{pdf.summary}{logical, should a summary be shown in pdf mode}
 }
 \description{
 Initialize an interacitve view

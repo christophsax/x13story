@@ -30,9 +30,12 @@
 #' @param m an object of class \code{"seas"}
 #' @param series character string indicating which series to show (see
 #'   \code{?series})
+#' @param pdf.summary  logical, should a summary be shown in pdf mode
+#' @param pdf.call   logical, should a call be shown in pdf mode
+#' @param pdf.series    logical, should a series be shown in pdf mode
 #' @export
 #' @import seasonal
-x13view <- function(m, series = "main"){
+x13view <- function(m, series = "main", pdf.series = TRUE, pdf.call = FALSE, pdf.summary = FALSE){
   x13view.mode = getOption("x13view.mode", "pdf")
 
   if (x13view.mode == "pdf") {  # storymode "pdf" "web"
@@ -46,22 +49,22 @@ x13view <- function(m, series = "main"){
 
     # m <- eval(parse(text = z$cstr), envir = globalenv())
 
-    # if (pdf.summary){
-    #   prettysummary(m)
-    # } 
+    if (pdf.summary){
+      prettysummary(m)
+    } 
 
-    # if (pdf.call){
-    #   cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
-    # }
+    if (pdf.call){
+      cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
+    }
     
-    # if (pdf.series){
-    #   if (series == 'main') {
-    #     s <- cbind(raw = original(m), adjusted = final(m))
-    #   } else {
-    #     s <- series(m, series = series)
-    #   }
-    #   prettyplot(s, ylab = series)
-    # }
+    if (pdf.series){
+      if (series == 'main') {
+        s <- cbind(raw = original(m), adjusted = final(m))
+      } else {
+        s <- series(m, series = series)
+      }
+      prettyplot(s, ylab = series)
+    }
   } else {
     ee <- parent.frame()
     all.obj <- ls(envir = ee)
