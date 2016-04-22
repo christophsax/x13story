@@ -23,7 +23,7 @@ To add or modify, update the files on a branch where the build process is tested
 and do a pull request. Only when on `master`, the successful builds are copied
 to:
 
-- Interactive views are shown on this [test site](http://www.seasonal.website/census) 
+- Interactive views are shown on this [test site](http://www.seasonal.website/x13story) 
   (graduate cap in the menu).
 
 - PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
