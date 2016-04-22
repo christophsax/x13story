@@ -10,11 +10,11 @@ if (Sys.getenv("TRAVIS") != ""){
   odir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "out")
 
 
-  message("Testing Skeleton")
-  sk <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/rmarkdown/templates/x13story/skeleton/skeleton.Rmd")
-  sk <- normalizePath(sk)
-  x13story::parse_x13story(file = sk)
-  rmarkdown::render(sk, x13story::x13story())
+  # message("Testing Skeleton")
+  # sk <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/rmarkdown/templates/x13story/skeleton/skeleton.Rmd")
+  # sk <- normalizePath(sk)
+  # x13story::parse_x13story(file = sk)
+  # rmarkdown::render(sk, x13story::x13story())
 
 
   ff <- list.files(idir, pattern = "\\.Rmd$", ignore.case = TRUE, full.names = TRUE)

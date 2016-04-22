@@ -17,7 +17,7 @@ An R package containing:
 - Infrastructure to interatively run X-13 stories.
 
 
-Update stories in [https://github.com/christophsax/x13story/tree/master/inst/stories](`inst/stories`) to trigger automated rendering on Travis. After
+Update stories in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) to trigger automated rendering on Travis. After
 successful rendering, they should be shown on the website.
 
 
