@@ -10,7 +10,8 @@ output: x13story::x13story
 
 
 ```{r, echo = FALSE}
-library(seasonal)
+library(13story)  # this will also load seasonal
+
 m <- seas(AirPassengers)
 
 # initializes a first interactive X-13 view.

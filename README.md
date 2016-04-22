@@ -37,8 +37,7 @@ To install this package from Github:
 
 To create a fresh X-13 story template in any R environment, use:
 
-    library(x13story)
-    draft("MyArticle.Rmd", template = "x13story", package = "x13story")
+    rmarkdown::draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
 
 In the latest version of RStudio, you can select the template from the menu:
