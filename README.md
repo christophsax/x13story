@@ -23,7 +23,8 @@ To add or modify, update the files on a branch where the build process is tested
 and do a pull request. Only when on `master`, the successful builds are copied
 to:
 
-- Interactive views are shown on this [test site](http://52.30.3.168/story3).
+- Interactive views are shown on this [test site](http://52.30.3.168/story3) 
+  (graduate cap in the menu).
 
 - PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
 
