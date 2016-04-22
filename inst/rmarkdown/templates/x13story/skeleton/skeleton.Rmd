@@ -10,7 +10,7 @@ output: x13story::x13story
 
 
 ```{r, echo = FALSE}
-library(13story)  # this will also load seasonal
+library(x13story)  # this will also load seasonal
 
 m <- seas(AirPassengers)
 
