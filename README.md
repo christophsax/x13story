@@ -14,7 +14,7 @@ An R package containing:
 
 - Infrastructure to generate PDFs from X-13 stories.
 
-- Infrastructure to interactively run X-13 stories on a Website.
+- Infrastructure to interactively run X-13 stories on a website.
 
 
 X-13 stories are kept in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) and are rendered automatically both as interactive views and as PDFs. 
@@ -28,6 +28,8 @@ to:
 
 - PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
 
+To get a more detailed description of the package and its use, have a look at the 
+[vignette](https://github.com/christophsax/x13story/tree/master/vignettes/x13story.pdf).
 
 To install this package from Github:
 
