@@ -7,6 +7,9 @@ Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
 
 Authors: [James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) and [Christoph Sax](http://www.christophsax.com)
 
+To get a more detailed description of the package and its use, have a look at the 
+[vignette](https://github.com/christophsax/x13story/tree/master/vignettes/x13story.pdf).
+
 An R package containing:
 
 - Example X-13 stories: R markdown documents that describe various aspects of
@@ -27,9 +30,6 @@ to:
   (graduate cap in the menu).
 
 - PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
-
-To get a more detailed description of the package and its use, have a look at the 
-[vignette](https://github.com/christophsax/x13story/tree/master/vignettes/x13story.pdf).
 
 To install this package from Github:
 
