@@ -3,12 +3,12 @@ title: Discussing X-13ARIMA-SEATS in R
 author: James Livsey and Christoph Sax
 abstract: >
   This vignette shows how R can be used to simplify discussions on seasonal
-  adjustment. Thanks to the R packages *seasonal* and *x13binary*, installing X
-  -13ARIMA-SEATS is as easy as installing any other R package. This provides a
-  simple way of discussing and exchanging seasonal adjustment problems.
-  Additionally, our new *x13story* package allows to document and publish
-  discussions both as a traditional documentation or as an interactive online
-  *story*.
+  adjustment. Thanks to the R packages *seasonal* and *x13binary*, installing 
+  X-13ARIMA-SEATS is as easy as installing any other R package. Which paves the 
+  path to a simple workflow of discussing and exchanging seasonal adjustment 
+  problems. Additionally, our new *x13story* package allows to document and 
+  publish discussions both as a traditional documentation or as an interactive 
+  online *story*.
 
 output: x13story::x13story
 ---
@@ -58,7 +58,7 @@ during exchange. The `dput()` function writes a text representation of an R
 object to the console, from where it can be copied and inserted into your R
 script.
 
-Here is an example on how to use `dput` on the built in examples series
+Here is an example on how to use `dput` on the built in example series
 `AirPassengers`:
 
 ```
@@ -96,13 +96,13 @@ nice applications:
 1. You can copy-paste a discussion in an email.
 
 2. You can put it to [GitHub](https://github.com), or [GitHub
-Gist](https://gist.github.com), or any other code sharing platform
+Gist](https://gist.github.com), or any other code sharing platform ([Example](https://github.com/christophsax/seasonal/issues/161)).
 
 3. You can put it on your website.
 
 4. You can use it in mailing lists or question/answer sites such as
 [CrossValidated](http://stats.stackexchange.com) or
-[StackOverflow](http://stackoverflow.com).
+[StackOverflow](http://stackoverflow.com) ([Example](http://stackoverflow.com/questions/30361807/seas-start-year-error-r)).
 
 5. You can transform it to a PDF documentation or an interactive online story
 (see the next section).
