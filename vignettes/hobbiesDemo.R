@@ -1,5 +1,4 @@
 library(seasonal)
-checkX13()
 
 # First read in the data from an external file. This is the only time this 
 #  will be done. 
@@ -114,5 +113,88 @@ plot(residuals(mBE), type="p", pch=19); abline(h=0, lty="dotted")
 acf(residuals(mBE), lag.max = 24)
 qqnorm(residuals(mBE))
 par(op)
+
+# Could these differences be caused by the different ARIMA models
+# Model A: (0 1 2)(0 1 1)
+# MOdel B: (1 0 2)(0 1 0)
+
+
+# Let's try Model B with Model A's ARIMA model:
+
+mBE2 <- seas(x, transform.function="none", 
+               x11.seasonalma = "s3x5",
+               forecast.maxlead = "12",
+               outlier.types = "AO",
+               arima.model = c(1, 0, 2, 0, 1, 0),
+               regression.aictest = "td, easter")
+
+# Let's repeat looking at some regression diagnostics 
+op <- par()
+par(mfrow=c(2,3), mar=c(2,2,2,2))
+plot(residuals(mAE), type="p", pch=19); abline(h=0, lty="dotted")
+acf(residuals(mAE), lag.max = 24)
+qqnorm(residuals(mAE))
+plot(residuals(mBE2), type="p", pch=19); abline(h=0, lty="dotted")
+acf(residuals(mBE2), lag.max = 24)
+qqnorm(residuals(mBE2))
+par(op)
+
+
+# Answer: Tail normality issue is not rectified by the new ARIMA model.
+
+
+# Let's see if we can improve mAE with addtional regressors. I.e., Chinese NY
+
+# using New Year Day as regressor: insignificant
+mAEC <- seas(
+    x = x,
+    xreg = genhol(cny, start = 0, end = 0, center = "calendar"),
+    transform.function = "log",
+    regression.aictest = c("td", "easter"),
+    x11.seasonalma = "s3x5",
+    forecast.maxlead = "12",
+    outlier.types = "AO",
+    x11 = "",
+    regression.usertype = "holiday"
+)
+
+summary(mAEC)
+
+
+# using 7 days pre-CNY and 7 days during-CNY: significant with expected signs
+mAEC2 <- seas(
+    x = x,
+    xreg = cbind(genhol(cny, start = -7, end = -1, center = "calendar"),
+                 genhol(cny, start = 0, end = 7, center = "calendar")),
+    transform.function = "log",
+    regression.aictest = c("td", "easter"),
+    x11.seasonalma = "s3x5",
+    forecast.maxlead = "12",
+    outlier.types = "AO",
+    x11 = "",
+    regression.usertype = "holiday"
+)
+
+# seasonal could be extended with something like that
+AIC.seas <- function(m){
+  unname(m$lks['aic'])
+}
+
+AICc <- function(m){
+  unname(m$lks['Aicc'])
+}
+
+BIC.seas <- function(m){
+  unname(m$lks['aic'])
+}
+
+AIC(mAEC2)
+AIC(mAE)
+
+AICc(mAEC2)
+AICc(mAE)
+
+# Both AIC (2822.8 vs 2824.3) and AICc (2824.7 vs 2825.7) suggest to include 
+# CNY. However, the economic reasoning seems to be small
 
 
