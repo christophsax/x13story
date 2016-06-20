@@ -194,7 +194,10 @@ AIC(mAE)
 AICc(mAEC2)
 AICc(mAE)
 
-# Both AIC (2822.8 vs 2824.3) and AICc (2824.7 vs 2825.7) suggest to include 
-# CNY. However, the economic reasoning seems to be small
+# Both AIC (2822.8 vs 2824.3) and AICc (2824.7 vs 2825.7) suggest to include
+# CNY. However, there seem not to be a good economic reasoning to include it, so
+# we probably still would go with the mAE.
+
+
 
 
