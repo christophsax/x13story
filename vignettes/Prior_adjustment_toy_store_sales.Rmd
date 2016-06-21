@@ -1,0 +1,129 @@
+---
+title: Prior Adjustment of Hobby, Toy and Game stores retail sales.
+subtitle: A discussion of a few possible prior adjustments  
+author: James Livsey & Christoph Sax
+abstract: >
+  Prior adjustment of a time series is crucial to seasonal adjustment. In what follows we will discuss the prior adjustment of retail sales for hobby, toy and game stores.  
+output: x13story::x13story
+---
+
+## Introduction: the data
+
+Let us first investigate the series we will be dealing with. The hobby, toy and game store retail sales are collected during the Census Bureau's economic census. This perticular series features large spikes in the month of December. 
+
+```{r, echo = FALSE, message=FALSE}
+library(x13story)  # this will also load seasonal
+
+x <- structure(c(620L, 585L, 643L, 706L, 660L, 721L, 678L, 653L, 638L, 
+                 789L, 1332L, 3226L, 598L, 576L, 683L, 735L, 685L, 722L, 745L, 
+                 682L, 671L, 799L, 1480L, 3275L, 618L, 637L, 819L, 782L, 742L, 
+                 758L, 778L, 801L, 806L, 987L, 1677L, 3445L, 683L, 665L, 823L, 
+                 867L, 821L, 873L, 851L, 846L, 846L, 993L, 1830L, 3616L, 705L, 
+                 737L, 890L, 862L, 669L, 849L, 877L, 874L, 870L, 1094L, 2002L, 
+                 4073L, 730L, 791L, 1032L, 896L, 947L, 940L, 963L, 958L, 971L, 
+                 1141L, 2009L, 3643L, 858L, 883L, 987L, 1022L, 986L, 1016L, 1042L, 
+                 1025L, 1005L, 1197L, 2011L, 3801L, 933L, 966L, 1135L, 1076L, 
+                 1061L, 1101L, 1083L, 1101L, 1111L, 1277L, 2096L, 3711L, 893L, 
+                 1002L, 1106L, 1136L, 1072L, 1098L, 1124L, 1132L, 1175L, 1285L, 
+                 2161L, 3763L, 880L, 971L, 1176L, 1063L, 1038L, 1107L, 1094L, 
+                 1065L, 1050L, 1303L, 2445L, 3628L, 896L, 966L, 1186L, 1014L, 
+                 1078L, 1065L, 1103L, 1087L, 1048L, 1347L, 2468L, 3651L, 910L, 
+                 940L, 1111L, 1139L, 1088L, 1064L, 1094L, 1087L, 1095L, 1286L, 
+                 2223L, 3545L, 962L, 1045L, 1125L, 1082L, 974L, 1024L, 1086L, 
+                 1016L, 1051L, 1311L, 2187L, 3451L, 950L, 980L, 1173L, 1098L, 
+                 1061L, 1049L, 1077L, 1028L, 1019L, 1229L, 2120L, 3471L, 1063L, 
+                 1022L, 1117L, 1094L, 1040L, 1048L, 1070L, 1043L, 1086L, 1205L, 
+                 1933L, 3299L, 948L, 974L, 1188L, 1064L, 1050L, 1096L, 1102L, 
+                 1084L, 1102L, 1275L, 2208L, 3253L, 1043L, 1077L, 1183L, 1080L, 
+                 1131L, 1044L, 1097L, 1065L, 1061L, 1218L, 1959L, 3117L, 1031L, 
+                 1009L, 1095L, 1086L, 1064L, 1020L, 1058L, 1007L, 1063L, 1194L, 
+                 1842L, 2999L, 953L, 1000L, 1155L, 1059L, 1030L, 1024L, 1070L, 
+                 1039L, 1074L, 1254L, 1990L, 3064L, 967L, 1023L, 1193L, 1184L, 
+                 1065L, 1061L, 1082L, 1067L, 1143L, 1243L, 1951L, 3033L, 1063L, 
+                 1182L, 1259L, 1146L, 1175L, 1120L, 1113L, 1117L, 1148L, 1263L, 
+                 1929L, 2963L, 1019L, 1068L, 1239L, 1107L, 1116L, 1057L, 1106L, 
+                 1145L, 1161L, 1338L, 2134L, 3263L, 1012L, 1084L, 1213L, 1195L, 
+                 1170L, 1084L, 1183L, 1185L, 1253L, 1360L, 2140L, 3511L, 1157L, 
+                 1190L, 1360L, 1260L, 1274L, 1196L), 
+                 .Tsp = c(1992, 2015.4166666666, 12), class = "ts")
+
+```
+
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "The original series without any prior adjustment"}
+prettyplot(x, ylab = "retail sales")
+```
+
+## A first attemp at prior adjustment and model fitting
+
+We investigate if we should be taking a log transform (and performing multiplicative seasonal adjustment) or possibly using no transform (and performing additive seasonal adjustment). If a log transform is used then two additive outliers (AOs) are detected in May 1996 and December 1996. However, when no transform is performed 5 additional AO's are identified. All AO's are shown in Figure 2 with vertical dashed lines. 
+
+```{r, echo=FALSE, result = "asis"}
+mA <- seas(x, transform.function="log", 
+             x11.seasonalma = "s3x5",
+             forecast.maxlead = "12",
+             outlier.types = "AO",
+             regression.aictest = "td")
+```
+
+```{r, echo = FALSE, results='asis'}
+prettysummary(mA, caption = "Regressors when log transformation is used")
+```
+
+```{r, echo=FALSE, result = "asis"}
+mB <- seas(x, transform.function="none", 
+             x11.seasonalma = "s3x5",
+             forecast.maxlead = "12",
+             outlier.types = "AO",
+             regression.aictest = "td")
+```
+
+```{r, echo = FALSE, results='asis'}
+prettysummary(mB, caption = "Regressors fit when no transformation is used")
+```
+
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "The original series with locations of AO's plotted with vertical lines"}
+plot(x)
+abline(v = c(1996 + 4/12,
+             1996 + 11/12), col="red", lty="dotted")
+abline(v = c(1996 + 4/12 + .01,
+             1996 + 11/12 + .01,
+             2001 + 10/12, 
+             2002 + 10/12,
+             2007 + 10/12, 
+             2013 + 11/12,
+             2014 + 11/12), col = "blue", lty = "dotted")
+legend("topleft", 
+       legend = c("log and no transform","no transform"), 
+       lty="dotted", 
+       col=c("red", "blue"))
+```
+
+## Easter Regressors
+
+An obvious question to be answered for a toy and game store series is does Easter have a significant effect? i.e. should we include a regressor for the date of easter. 
+
+```{r, echo=FALSE}
+mAE <- seas(x, transform.function="log", 
+               x11.seasonalma = "s3x5",
+               forecast.maxlead = "12",
+               outlier.types = "AO",
+               regression.aictest = "td, easter")
+mBE <- seas(x, transform.function="none", 
+               x11.seasonalma = "s3x5",
+               forecast.maxlead = "12",
+               outlier.types = "AO",
+               regression.aictest = "td, easter")
+```
+
+The location March 1997 is the largest change in final SA value when including the easter regressor; a difference of 67.94. 
+
+```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "1995-1999 original series with final SA with and without the Easter regressor included"}
+prettyplot(window(x, start=c(1995, 1), end=c(1999, 12)), ylab="value")
+lines(window(final(mAE), start=c(1995, 1), end=c(1999, 12)), col="red")
+lines(window(final(mA), start=c(1995, 1), end=c(1999, 12)), col="blue")
+legend("topleft", 
+       legend = c("without Easter reg", "with Easter reg"), 
+       lty = c(1, 1), 
+       col = c("blue", "red"))
+```
+
