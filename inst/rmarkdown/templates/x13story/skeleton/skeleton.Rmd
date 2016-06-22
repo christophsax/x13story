@@ -3,26 +3,25 @@ title: A short title here
 subtitle: A sightly more detailed subtitle here
 author: Your Name
 abstract: >
-  An abstract of less than 50 words.
+  This is a template for X-13 stories, descriptions of seasonal adjustment
+  discussions that can be turned into **PDFs** or into **interactive stories**.
 output: x13story::x13story
 ---
 
 
 ```{r, echo = FALSE, message = FALSE}
-# this will also load seasonal
+# landscape aspect ratio for time series
+knitr::opts_chunk$set(fig.width = 10, fig.height = 6)
+# also load seasonal
 library(x13story)  
-```
-
-```{r, echo = FALSE}
-m <- seas(AirPassengers)
-
-# initializes a first interactive X-13 view.
-x13view(m, "main")
 ```
 
 ## A main header
 
-This is a template for X-13 stories, descriptions of seasonal adjustment issues that can be turned into pdf's or into interactive HTML stories. For a more extensive description of the approach, see our paper.
+This is a template for X-13 stories, descriptions of seasonal adjustment
+discussions that can be turned into **PDFs** or into **interactive stories**.
+For a more extensive description of the approach, see the
+[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf).
 
 Use `h2` header (`##`) as top headers, so you can wrap several stories in a
 book, separating them with `h1` headers (`#`).
@@ -32,16 +31,26 @@ takes an object of class `"seas"` as its first argment, and a chararacter string
 describing the view as its second. For a list of all available views, see
 `?series`.
 
+
+```{r, echo = FALSE, fig.cap = "A first X-13 view."}
+m <- seas(AirPassengers)
+
+# the 'x13view' function initializes an interactive X-13 view, or adds a 
+# graph to a PDF. 
+x13view(m, "main")
+```
+
 ### A sub header
 
-You can use arbitrary code in your document, which is not evaluated.
+You can use arbitrary code in your document, which is not evaluated if used in
+an interactive story.
 
 ```
 dput(AirPassengers)
 
 ``` 
 
-You can also used math both for pdfs and and the interactive view:
+You can also use \LaTeX-style math both for PDFs and and the interactive view:
 
 $$X_t = T_t + S_t + I_t$$ 
 
@@ -49,7 +58,7 @@ Inlined math, $E = mc^2$, is possible as well.
 
 You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
 
-```{r, echo = FALSE, fig.width = 10, fig.height = 6}
+```{r, echo = FALSE, fig.cap = "A second X-13 view."}
 library(x13story)
 
 myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119, 
@@ -88,7 +97,7 @@ Which will set up a view based on your own data.
 Since the following two chuncks are `echo = FALSE` they won't be shown in both the PDF and the interactive view.
 
 
-```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of a pretty plot."}
+```{r echo = FALSE, fig.cap = "An example of a pretty plot."}
 prettyplot(myseries)
 ```
 
