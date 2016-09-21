@@ -7,19 +7,14 @@
 #' @export
 parse_x13story <- function(file){
   # file = "/Users/christoph/git/x13story/inst/stories/x11.Rmd"
-
+ 
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
-  knitr::purl(file, output=tempR)
+  knitr::purl(file, output=tempR, quiet = TRUE)
 
   # we don't want graphic output, so sending it to the pdf device is a workaround
   op <- options(x13view.mode = "html", device = "pdf")  
   on.exit(options(op))
-
-
-  # capture.output is only to mute 'source'. 'cat' statements aren't suppressed by
-  # echo = FLASE
-  # a <- capture.output(
 
   x13view.env <- new.env(parent = emptyenv())
 
