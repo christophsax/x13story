@@ -1,3 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^.*\.sublime-project
 .gitignore
 ^\.travis\.yml$
-out
+^appveyor\.yml$
+build.R
+travis
+\.git
+.git
+.DS_Store

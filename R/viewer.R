@@ -33,9 +33,17 @@
 
 
 # an example
-# file <- system.file(package = "x13story", "stories", "x11.Rmd")
-# viewer(file)
 
+
+#' Local Display of Interactive Stories
+#' @param file character, path to the rmarkdown file containing an X-13 story.
+#' @param quiet logical, should the output of shiny be suppressed
+#' @examples
+#' \dontrun{
+#' file <- system.file(package = "x13story", "stories", "x11.Rmd")
+#' viewer(file)
+#' }
+#' 
 #' @export
 viewer <- function(file, quiet = TRUE){ 
 
