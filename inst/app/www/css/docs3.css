@@ -1,0 +1,562 @@
+
+
+
+/*because it is not in a panel, adjust spaces manually*/
+div#searchpanel {
+  margin-bottom: 17px;
+}
+
+
+
+/*navar adjustments*/
+.navbar .navbar-nav > li > a {
+  font-weight: normal;
+  color: #000000;
+  font-size: 15px;
+}
+
+.navbar .navbar-brand {
+  color: #000;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.navbar.navbar.navbar-fixed-top.app-navbar {
+    background-color: #ffffff;
+    border-bottom-color: #bbb;
+}
+
+
+
+.nav > li > a:focus {
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 0px;
+}
+
+
+.nav > li {
+  cursor: pointer;
+}
+
+/*a.list-group-item.ds-selectable-item {*/
+/*  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;*/
+/*  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;*/
+/*}*/
+
+
+
+
+a.shiny-id-el {
+  cursor: pointer;
+}
+
+a.shiny-id-el.id-el-selected {
+  color: #000;
+}
+
+
+
+
+
+
+
+/*.ds-split-link{
+  font-size: small;
+  margin-bottom: 40px;
+}
+
+*/
+
+
+
+/*dygraph adjustments*/
+footer {
+  font-size: 70%;
+}
+/*
+div .dygraphs{
+  width: 50px;
+   
+}
+*/
+.dygraph-legend{
+    font-weight: 100;
+      color: #303030;
+}
+
+
+.dygraph-axis-label {
+  color: #303030;
+        font-size: 80%;
+}
+
+
+
+
+
+
+/* make selectize fit (all the !important are needed because selectize.css is added by shiny aferwards.)*/
+
+.selectize-input.focus{
+  box-shadow: none !important;
+  border-color: #d4dbe0 !important;
+}
+
+.selectize-control.single .selectize-input.input-active,
+.selectize-control.single .selectize-input.input-active input {
+  cursor: text;
+    /*border-color: #4D4D4D !important;*/
+
+  border-color: rgb(102, 175, 233) !important;
+}
+
+.selectize-control.single .selectize-input:hover {
+  /*border-color: #66afe9 !important;*/
+  box-shadow: none !important;
+}
+
+.selectize-control.single .selectize-input, .selectize-dropdown.single {
+  display: inline-block;
+  padding: 9px 12px 9px 12px;
+  font-size: 115%;
+  line-height: 1.6;
+/**/  vertical-align: middle;*/
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none \9;
+  padding-right: 10px \9;
+  border: 1px solid #d4dbe0;
+}
+
+
+/*
+
+.collection-button {
+    color: #aab8c2;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    padding: 0 2px;
+    position: relative
+}
+
+*/
+
+
+/*no shaddow after using custom-select*/
+.custom-select:focus {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.14902);
+}
+
+
+
+/*responsive init screen*/
+
+
+body {
+      /*background-color: #4F6B72;*/
+  }
+
+
+/*@media (min-width: 992px) {*/
+  body {
+      /*background-image: url("../assets/img/bg3.jpg");*/
+      background-image: url("../assets/img/bg6.jpg");
+
+      background-repeat:no-repeat;
+      /*background-size: 30%;*/
+     background-size:cover;
+     background-position: center; 
+  }
+/*}*/
+
+
+div#init-text {
+  opacity: 1;
+  font-weight: normal;
+  position: relative;
+  margin-top: 25%;
+}
+@media (min-width: 992px) {
+  div#init-text {
+    margin-top: 10%;
+  }
+}
+
+.init-search {
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    right: 15px;
+    z-index: 1000;
+  }
+
+@media (min-width: 992px) {
+  .init-search {
+    top: 48%;
+    left: 20%;
+    right: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  .init-search {
+    top: 48%;
+    left: 25%;
+    right: 25%;
+  }
+}
+
+
+
+
+
+
+
+
+/*a lot of hacking to finally restore the button (outdated?)*/
+.navbar-toggle {
+  border-color: #ddd;
+  color: #555;
+  padding-bottom: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 1px;
+  line-height: 27px;
+  font-size: 27px; 
+}
+
+.btn-tag:hover {
+  color: #ffffff !important;
+  background-color: #cbb956 !important;
+  border-color: #c5b142 !important;
+} 
+
+.btn-tag:active {
+  color: #ffffff !important;
+  background-color: #cbb956 !important;
+  border-color: #c5b142 !important;
+  box-shadow: none;
+} 
+
+/*
+
+
+
+
+/*hirachical menu*/
+
+.list-group.list-group-root {
+    padding: 0;
+    overflow: hidden;
+}
+
+.list-group.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+.list-group.list-group-root .list-group-item {
+    border-radius: 0;
+    border-width: 1px 0 0 0;
+}
+
+.list-group.list-group-root > .list-group-item:first-child {
+    border-top-width: 0;
+}
+
+.list-group.list-group-root > .list-group > .list-group-item {
+    padding-left: 30px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group-item {
+    padding-left: 49px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group > .list-group-item {
+    padding-left: 68px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group > .list-group > .list-group-item {
+    padding-left: 87px;
+}
+
+/*colored borders (and padding adjustments for each level)*/
+
+.list-group.list-group-root > a.split-colored {
+  border-left-width: 5px !important;
+  padding-left: 10px;
+}
+
+.list-group.list-group-root > .list-group > a.split-colored {
+  border-left-width: 5px !important;
+  padding-left: 25px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > a.split-colored {
+  border-left-width: 5px !important;
+  padding-left: 44px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group > a.split-colored {
+  border-left-width: 5px !important;
+  padding-left: 63px;
+}
+
+.list-group.list-group-root > .list-group > .list-group > .list-group > .list-group > a.split-colored {
+  border-left-width: 5px !important;
+  padding-left: 82px;
+}
+
+
+
+span.icon.icon-toggle {
+    cursor: pointer;
+}
+
+
+
+/*
+.list-group-item .icon {
+    margin-right: 5px;
+}
+
+*/
+
+
+/* highlight only in dygraph legend*/
+
+#oLabel > span {
+  display: none;
+}
+
+#oLabel > span.highlight {
+  background-color: transparent !important;
+  display: inline;
+}
+
+
+
+/*values on mouseover, e.g.*/
+/*http://www.bootply.com/pEFhaLWTht*/
+
+
+/* edgy panels*/
+
+/*.list-group.list-group-root {
+border-radius: 0px !important;
+}
+*/
+/*.list-group.list-group-root > .list-group-item {
+  border-radius: 0px !important;
+}
+*/
+.well {
+border-radius: 0px !important;
+}
+
+.selectize-input.items {
+  border-radius: 0px !important;
+
+}
+.panel.panel-default {
+  border-radius: 0px !important;
+}
+
+
+.alert {
+  border-radius: 0px !important;
+}
+
+
+.list-group {
+  border-radius: 0px !important;
+}
+
+.list-group-item {
+    border-radius: 0px !important;
+
+}
+
+/*an even better fit of selctize in the theme application style*/
+.selectize-dropdown-content {
+    margin-left: -12px;
+    margin-right: -12px;
+        padding-left: 10px;
+}
+
+.selectize-dropdown .active {
+    background-color: #F5F8FA;
+    margin-left: -10px;
+    padding-left: 22px;
+}
+
+.selectize-dropdown.single.demo-default {
+    border-width: 0px;
+    /* border-top-left-radius: 0px; */
+    /* border-top-right-radius: 0px; */
+    margin-top: 3px !important;
+}
+
+.option {
+  color: #000;
+  font-size: 15px;
+  /*font-weight: 100;*/
+  -webkit-font-smoothing:antialiased
+
+}
+
+.optgroup-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-font-smoothing:antialiased;
+    /*color: #000 !important;*/
+
+}
+
+
+/*during styling only */
+/*.selectize-dropdown.single.demo-default {
+    display: inline !important;
+}*/
+
+
+/*.split-selected {*/
+  /*border-left-width: 15px;*/
+/*}*/
+
+
+
+/*    
+.option.selected {
+    background-color: #F5F8FA;
+}*/
+
+
+
+
+.control-group {
+    display: inline-flex;
+    vertical-align: top;
+}
+
+
+
+
+.dygraph-info {
+  font-size: 80%;
+  color: #bbb;
+}
+
+#info-zoom-touch.dygraph-info {
+  font-size: 85%;
+  color: #000;
+}
+
+
+.dygraph-label.dygraph-ylabel {
+      font-size: small;
+      /*color: #bbb;*/
+  margin-top: 4px;
+  /*transform: rotate(90deg);*/
+}
+
+
+
+.btn-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.btn-round.btn-sm {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-round.btn-xs {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+
+/*no 'hover' effect on lock button for touch devices*/
+button#zoom-lock:hover {
+  color: rgb(83, 101, 112);
+  background-color: transparent;
+}
+
+button#zoom-lock.active {
+  color: rgb(255, 255, 255);
+  background-color: rgb(83, 101, 112);
+}
+
+
+
+
+
+
+
+/*a hack to adjustst margins on iVar*/
+div#iVar.shiny-id-callback.shiny-bound-input {
+  margin-bottom: -35px;
+}
+
+/*no spaces between elements in stack*/
+.media{
+  margin-top: 0px;
+}
+
+
+/*disabled split elements*/
+.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
+    background-color: #fff;
+    color: #ddd;
+}
+
+
+
+.split-selectable{
+  cursor: default;
+}
+
+
+a.freq {
+  cursor: pointer;
+}
+a.freq.active {
+  color: #000;
+
+}
+
+
+.modal-body > p {
+  font-size: 115%;
+}
+
+.icon-lg {
+  font-size: 220%;
+  padding-right: 40px;
+}
+.modal-media{
+  font-size: 115%;
+}
+
+.modal-body > h2 {
+  font-weight: normal !important;
+  font-size: 280% !important;
+}
+
+.modal-body {
+  padding-left: 40px;
+  
+}
+
+
+
