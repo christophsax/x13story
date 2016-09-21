@@ -46,14 +46,18 @@ In the latest version of RStudio, you can select the template from the menu:
 
     New Document Symbol > R Markdown ... > From Template > X-13 Handout
 
+**NEW in 0.0.2** Use `viewer()` to run your interactive stories locally. You can specifiy bot a local or a remote `.Rmd` file.
+
+    viewer("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
+
 
 ### Roadmap
 
-- [ ] Offline version of [www.seasonal.website](www.seasonal.website)
-   - [ ] Substitute Nifty with Open Source [LTEAdmin](https://almsaeedstudio.com/preview)
-   - [ ] Substitute Frutiger font with Open Sans
-   - [ ] Local website version that is part of the package
-   - [ ] Render function that takes an `.Rmd` file as an argument and show it as interactive lesson
+- [X] Offline version of [www.seasonal.website](www.seasonal.website)
+   - [X] Substitute Nifty with Open Source [LTEAdmin](https://almsaeedstudio.com/preview)
+   - [X] Substitute Frutiger font with Open Sans
+   - [X] Local website version that is part of the package
+   - [X] Render function that takes an `.Rmd` file as an argument and show it as interactive lesson
 - [ ] Add more stories
 - [ ] Structure story menu into topics
     
