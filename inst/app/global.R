@@ -61,7 +61,7 @@ for (i in 2:length(lFOpts)){
 # } 
 
 
-wd <- system.file("app", package = "seasonalInspect")
+# wd <- system.file("app", package = "x13story")
 
   # SPECS <- read.csv("ressources/speclist/table_web.csv", header = TRUE, stringsAsFactors = FALSE)
   # save(SPECS, file = "~/seasweb/specs.rdata")
@@ -135,7 +135,6 @@ init.model <- upd_seas(init.model, series = "main")
 
 # # flatten the list
 # lStory <- do.call("c", lStory)
-
 
 
 # so we can run it as 'app', too, outside of inspect

@@ -59,11 +59,14 @@ viewer <- function(file, quiet = TRUE){
   }
 
   file <- normalizePath(file)
-  story.rendered <- x13story::parse_x13story(file = file)
+
+  .GlobalEnv$story.rendered <- x13story::parse_x13story(file = file)
+  on.exit(rm(story.rendered, envir=.GlobalEnv))
 
   cat("Press ESC (or Ctrl-C) to get back to the R session\n")
 
-  wd <- system.file("app", package = "seasonalInspect")
+  wd <- system.file("app", package = "x13story")
+
   shiny::runApp(wd, quiet = quiet)
 
 }
