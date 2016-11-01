@@ -68,7 +68,7 @@ installed anywhere with a single line of code (see above).
 
 For sharing, the `viewer` function allows you to interactively inspect X-13 
 stories anywhere on the web. For example, you can put it to
-[GitHubGist](https://gist.github.com) and make the link available to anyone you
+[GitHub Gist](https://gist.github.com/christophsax/713ba85ec7540541a140cb000189e190) and make the link available to anyone you
 want, even without setting up an account.
 
 We intend to collect stories on X-13ARIMA-SEATS in the *x13story* package and
