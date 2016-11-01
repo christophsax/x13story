@@ -16,13 +16,12 @@ either as:
 
 - or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/), see below).
 
-![http://www.christophsax.com/x13story/](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
+![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
 
-We see both static PDF documents and interactive online stories as part of a
-general workflow that simplifies discussions on seasonal adjustment. A
-preliminary draft of the 
-[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf) 
-describes this workflow in more detail.
+We see both static PDF documents and interactive online stories as part of an
+ideal workflow that simplifies discussions on seasonal adjustment. A preliminary
+draft of the  
+[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf)  describes this workflow in more detail.
 
 
 ### Installation
@@ -78,8 +77,9 @@ want, even without setting up an account.
 We intend to collect stories on X-13ARIMA-SEATS in the *x13story* package and
 make them interactively available
 [online]([example](http://www.christophsax.com/x13story/)). We currently keep
-X-13 stories in [`inst/stories`](https://github.com/christophsax/x13story/tree/m
-aster/inst/stories). Stories are rendered automatically both as 
+X-13 stories in 
+[`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories). 
+Stories are rendered automatically both as 
 [interactive views](http://www.seasonal.website/x13story) and as [PDFs]((http://www.christophsax.com/x13story).
 
 This is still work in progress. We greatly appreachiate feedback and
