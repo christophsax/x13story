@@ -23,7 +23,7 @@ either as:
 We see both static PDF documents and interactive online stories as part of a
 general workflow that simplifies discussions on seasonal adjustment. A
 preliminary draft of the 
-[**vignette**](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf) 
+[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf) 
 describes this workflow in more detail.
 
 
@@ -54,10 +54,10 @@ If you are using R from another environment, use:
 
     rmarkdown::draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
-To **generate a PDF document**, you can use the <kbd>knitr</kbd> button in
+To generate a **PDF document**, you can use the <kbd>knitr</kbd> button in
 RStudio, or run *knitr* from the console.
 
-To **generate an interactive story**, use the `viewer` function from the
+To generate an **interactive story**, use the `viewer` function from the
 *x13story* package. The function accepts a local or a remote file name, so the
 following downloads an X-13 Story from the internet and interactively displays
 it in your browser:
@@ -67,7 +67,7 @@ it in your browser:
 
 ### Sharing Stories
 
-As we argue in the [**vignette**](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf), R offers the single easiest workflow of discussing and 
+As we argue in the [vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf), R offers the single easiest workflow of discussing and 
 exchanging seasonal adjustment problems. The *x13story* package allows to 
 document and publish discussions both as a traditional documentation or as an 
 interactive online story.
