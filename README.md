@@ -40,7 +40,7 @@ As *x13story* is not yet on CRAN, it needs to be installed from GitHub:
 *x13story* relies on the R package 
 [seasonal](https://CRAN.R-project.org/package=seasonal) to interface to 
 X-13ARIMA-SEATS. If you install *x13story*, seasonal and the X-13ARIMA-SEATS 
-binaries (through [seasonal](https://CRAN.R-project.org/package=x13binary)) are 
+binaries (through [x13binary](https://CRAN.R-project.org/package=x13binary)) are 
 automatically installed.
 
 ### Authoring Stories
