@@ -61,7 +61,7 @@ for (i in 2:length(lFOpts)){
 # } 
 
 
-# wd <- system.file("app", package = "x13story")
+wd <- system.file("app", package = "x13story")
 
   # SPECS <- read.csv("ressources/speclist/table_web.csv", header = TRUE, stringsAsFactors = FALSE)
   # save(SPECS, file = "~/seasweb/specs.rdata")
