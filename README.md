@@ -13,14 +13,13 @@ The package allows you to render an *X-13 story*
 
 - a nicely formated PDF ([example](http://www.christophsax.com/x13story/x11.pdf))
 
-- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/), see screenshot below).
+- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/), see screenshot).
 
 ![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
 
 We see both static PDFs and interactive online stories as part of an
 ideal workflow that simplifies discussions on seasonal adjustment. A preliminary
-draft of the  
-[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf)  describes the workflow in more detail.
+draft of the [vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf) describes the workflow in more detail.
 
 
 ### Installation
@@ -30,17 +29,17 @@ As the package is not yet on CRAN, it needs to be installed from GitHub:
     library(devtools)  # if you don't have devtools: install.packages("devtools")
     install_github("christophsax/x13story")
 
-*x13story* depends on the R package 
-[seasonal](https://CRAN.R-project.org/package=seasonal) to interface to 
+The *x13story* package depends on the R package 
+[seasonal](https://CRAN.R-project.org/package=seasonal), which interfaces to 
 X-13ARIMA-SEATS. If you install *x13story*, seasonal and the X-13ARIMA-SEATS 
 binaries (through [x13binary](https://CRAN.R-project.org/package=x13binary)) are 
-automatically installed.
+installed automatically.
 
 
 ### Authoring Stories
 
 In newer versions of [RStudio](https://www.rstudio.com/products/RStudio/), you 
-can select the template from the menu:
+can select the R Makrdown template from the menu:
 
     New Document Symbol > R Markdown ... > From Template > X-13 Handout
     
@@ -48,8 +47,8 @@ If you are using R from another environment, use:
 
     rmarkdown::draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
-To generate a **PDF**, you can use the <kbd>knitr</kbd> button in
-RStudio, or run *knitr* from the console.
+To generate a **PDF**, you can use the <kbd>knitr</kbd> button in RStudio, or 
+run *knitr* from the console.
 
 To generate an **interactive story**, use the `viewer` function from the
 *x13story* package. The function accepts a local or a remote file path, so the
