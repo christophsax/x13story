@@ -1,42 +1,52 @@
-Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
----------------------------------------------------------------
+Simplified Discussions on Seasonal Adjustment
+---------------------------------------------
 
 [![Build Status](https://travis-ci.org/christophsax/x13story.svg?branch=master)](https://travis-ci.org/christophsax/x13story)
 
-**this is very, very preliminary!**
+by [James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) (United States Census Bureau) and [Christoph Sax](http://www.christophsax.com) (University of Basel)
 
-Authors: [James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) and [Christoph Sax](http://www.christophsax.com)
+An R package providing infrastructure for writing *X-13 stories* - 
+[R Markdown](http://rmarkdown.rstudio.com) documents that describe various 
+aspects of seasonal adjustment with 
+[X-13ARIMA-SEATS](https://www.census.gov/srd/www/x13as/).
 
-To get **a more detailed description** of the package and its use, have a look at the 
-[**vignette**](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf).
+The package allows you to render an *X-13 story* 
+([example](https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd)) 
+either as:
 
-An R package containing:
+- a nicely formated PDF report ([example](http://www.christophsax.com/x13story/x11.pdf))
 
-- Example X-13 stories: R markdown documents that describe various aspects of
-  seasonal adjustment.
+- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/)). Below is a screenshot of an interactive story.
 
-- Infrastructure to generate PDFs from X-13 stories.
+![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.jpg)
 
-- Infrastructure to interactively run X-13 stories on a website.
+We see both static PDF documents and interactive online stories as part of a
+general workflow that simplifies discussions on seasonal adjustment. A
+preliminary draft of the 
+[**vignette**](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf) 
+describes this workflow in more detail.
 
 
-X-13 stories are kept in [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories) and are rendered automatically both as interactive views and as PDFs. 
+### Installation
 
-To add or modify, update the files on a branch where the build process is tested
-and do a pull request. Only when on `master`, the successful builds are copied
-to:
+As *x13story* is not yet on CRAN, it needs to be installed from GitHub:
 
-- Interactive views are shown on this [test site](http://www.seasonal.website/x13story) 
-  (graduate cap in the menu).
 
-- PDFs can be downloaded from [here](http://www.christophsax.com/x13story).
+    library(devtools)  # if you don't have devtools: install.packages("devtools")
 
-To install this package from Github:
+    install_github("christophsax/x13story")
 
-    if (!require(devtools)) install.packages("devtools")
-    devtools::install_github("christophsax/x13story")
 
-In newer versions of RStudio, you can select the template from the menu:
+*x13story* relies on the R package 
+[seasonal](https://CRAN.R-project.org/package=seasonal) to interface to 
+X-13ARIMA-SEATS. If you install *x13story*, seasonal and the X-13ARIMA-SEATS 
+binaries (through [seasonal](https://CRAN.R-project.org/package=x13binary)) are 
+automatically installed.
+
+### Authoring Stories
+
+In newer versions of [RStudio](https://www.rstudio.com/products/RStudio/), you 
+can select the template from the menu:
 
     New Document Symbol > R Markdown ... > From Template > X-13 Handout
     
@@ -44,20 +54,37 @@ If you are using R from another environment, use:
 
     rmarkdown::draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
-To **generate a PDF document**, you can use the <kbd>knitr</kbd> button in RStudio, or run *knitr* from your environment.
+To **generate a PDF document**, you can use the <kbd>knitr</kbd> button in
+RStudio, or run *knitr* from the console.
 
-To **generate an interactive story**, use the `viewer` function of *x13story*:
+To **generate an interactive story**, use the `viewer` function from the
+*x13story* package. The function accepts a local or a remote file name, so the
+following downloads an X-13 Story from the internet and interactively displays
+it in your browser:
 
     viewer("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
 
 
-### Roadmap
+### Sharing Stories
 
-- [X] Offline version of [www.seasonal.website](www.seasonal.website)
-   - [X] Substitute Nifty with Open Source [LTEAdmin](https://almsaeedstudio.com/preview)
-   - [X] Substitute Frutiger font with Open Sans
-   - [X] Local website version that is part of the package
-   - [X] Render function that takes an `.Rmd` file as an argument and show it as interactive lesson
-- [ ] Add more stories
-- [ ] Structure story menu into topics
-    
+As we argue in the [**vignette**](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf), R offers the single easiest workflow of discussing and 
+exchanging seasonal adjustment problems. The *x13story* package allows to 
+document and publish discussions both as a traditional documentation or as an 
+interactive online story.
+
+For personal sharing, the `viewer` function allows you interactively inspect an
+X-13 Story anywhere on the web. For example, you can put it to
+[GitHubGist](https://gist.github.com) and make the link available to anyone you
+want, even without setting up an account.
+
+We intend to collect stories on X-13ARIMA-SEATS in the *x13story* package and
+make them interactively available
+[online]([example](http://www.christophsax.com/x13story/)). We currently keep
+X-13 stories in [`inst/stories`](https://github.com/christophsax/x13story/tree/m
+aster/inst/stories). Stories are rendered automatically both as 
+[interactive views](http://www.seasonal.website/x13story) and as [PDFs]((http://www.christophsax.com/x13story).
+
+This is still work in progress. We greatly appreachiate feedback and
+contributions of X-13 stories, even when they are still a bit edgy.
+
+
