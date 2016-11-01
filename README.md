@@ -13,7 +13,7 @@ The package allows you to render an *X-13 story*
 
 - a nicely formated PDF ([example](http://www.christophsax.com/x13story/x11.pdf))
 
-- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/), see screenshot).
+- or as an online story that can be manipulated interactively ([example](http://www.seasonal.website/x13story), see screenshot).
 
 ![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
 
