@@ -36,17 +36,17 @@ To install this package from Github:
     if (!require(devtools)) install.packages("devtools")
     devtools::install_github("christophsax/x13story")
 
+In newer versions of RStudio, you can select the template from the menu:
 
-To create a fresh X-13 story template in any R environment, use:
+    New Document Symbol > R Markdown ... > From Template > X-13 Handout
+    
+If you are using R from another environment, use:
 
     rmarkdown::draft("MyArticle.Rmd", template = "x13story", package = "x13story")
 
+To **generate a PDF document**, you can use the <kbd>knitr</kbd> button in RStudio, or run *knitr* from your environment.
 
-In the latest version of RStudio, you can select the template from the menu:
-
-    New Document Symbol > R Markdown ... > From Template > X-13 Handout
-
-**NEW in 0.0.2** Use `viewer()` to run your interactive stories locally. You can specifiy bot a local or a remote `.Rmd` file.
+To **generate an interactive story**, use the `viewer` function of *x13story*:
 
     viewer("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
 
