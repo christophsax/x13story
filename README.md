@@ -14,9 +14,9 @@ either as:
 
 - a nicely formated PDF report ([example](http://www.christophsax.com/x13story/x11.pdf))
 
-- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/)). Below is a screenshot of an interactive story.
+- or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/), see below).
 
-![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
+![http://www.christophsax.com/x13story/](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
 
 We see both static PDF documents and interactive online stories as part of a
 general workflow that simplifies discussions on seasonal adjustment. A
