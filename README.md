@@ -3,8 +3,6 @@ Simplified Discussions on Seasonal Adjustment
 
 [![Build Status](https://travis-ci.org/christophsax/x13story.svg?branch=master)](https://travis-ci.org/christophsax/x13story)
 
-by [James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) (United States Census Bureau) and [Christoph Sax](http://www.christophsax.com) (University of Basel)
-
 An R package providing infrastructure for writing *X-13 stories* - 
 [R Markdown](http://rmarkdown.rstudio.com) documents that describe various 
 aspects of seasonal adjustment with 
@@ -18,7 +16,7 @@ either as:
 
 - or as an online story that can be manipulated interactively ([example](http://www.christophsax.com/x13story/)). Below is a screenshot of an interactive story.
 
-![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.jpg)
+![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
 
 We see both static PDF documents and interactive online stories as part of a
 general workflow that simplifies discussions on seasonal adjustment. A
@@ -87,4 +85,14 @@ aster/inst/stories). Stories are rendered automatically both as
 This is still work in progress. We greatly appreachiate feedback and
 contributions of X-13 stories, even when they are still a bit edgy.
 
+
+### Authors
+
+[James Livsey](http://www.census.gov/research/researchers/profile.php?cv_profile=3922&cv_submenu=title) (United States Census Bureau) and 
+[Christoph Sax](http://www.christophsax.com) (University of Basel)
+
+
+### License
+
+GPL-3
 
