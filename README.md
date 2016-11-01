@@ -3,7 +3,7 @@ Simplified Discussions on Seasonal Adjustment
 
 [![Build Status](https://travis-ci.org/christophsax/x13story.svg?branch=master)](https://travis-ci.org/christophsax/x13story)
 
-An R package providing infrastructure for writing *X-13 stories* - 
+An R package providing infrastructure for writing **X-13 stories**, essentially
 [R Markdown](http://rmarkdown.rstudio.com) documents that describe various 
 aspects of seasonal adjustment with 
 [X-13ARIMA-SEATS](https://www.census.gov/srd/www/x13as/).
