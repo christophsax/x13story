@@ -77,7 +77,7 @@ make them interactively available
 currently kept in 
 [`inst/stories`](https://github.com/christophsax/x13story/tree/master/inst/stories). 
 Stories are rendered automatically both as 
-[interactive views](http://www.seasonal.website/x13story) and as [PDFs]((http://www.christophsax.com/x13story).
+[interactive views](http://www.seasonal.website/x13story) and as [PDFs](http://www.christophsax.com/x13story).
 
 This is work in progress. We greatly appreciate feedback and
 contributions of X-13 stories, even when they are still edgy.
