@@ -1,6 +1,6 @@
 ---
 title: Seasonal Adjustment Workshop Story
-subtitle: for practicioners of seasonal adjustment
+subtitle: for practitioners of seasonal adjustment
 author: James Livsey
 abstract: 
   This is an X-13 story. A seasonal adjustment
@@ -37,7 +37,7 @@ x13view(m, "main")
 
 ### A default adjustment of the AirPassengers Series
 
-Notice the seasonally adjusted sereis superimposed on the original series. 
+Notice the seasonally adjusted series superimposed on the original series. 
 
 ### Data can be included in this file too
 
@@ -78,7 +78,7 @@ You can also use \LaTeX-style math both for PDFs and and the interactive view:
 
 $$X_t = T_t + S_t + I_t$$ 
 
-Inlined math, $E = mc^2$, is possible as well.
+Inline math, $E = mc^2$, is possible as well.
 
 You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
 
