@@ -1,8 +1,8 @@
 Package: x13story
 Type: Package
 Title: Interactive Stories on Seasonal Adjustment with X-13ARIMA-SEATS
-Version: 0.0.2.1
-Date: 2016-10-04
+Version: 0.0.2.2
+Date: 2016-12-15
 Author: James Livsey, Christoph Sax
 Maintainer: Christoph Sax <christoph.sax@gmail.com>
 Description: Collection of tools to facitilitate the generation of interactive 
@@ -10,6 +10,7 @@ Description: Collection of tools to facitilitate the generation of interactive
     both as PDFs or as interactive views.
 Depends:
     seasonal,
+    seasonalview,
     rmarkdown,
     shiny (>= 0.14.0),
     shinydashboard (>= 0.5.3),

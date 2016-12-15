@@ -13,9 +13,9 @@ The package allows you to render an *X-13 story*
 
 - a nicely formated PDF ([example](http://www.christophsax.com/x13story/x11.pdf))
 
-- or as an online story that can be manipulated interactively ([example](http://www.seasonal.website/x13story), see screenshot).
+- or as an online story that can be manipulated interactively, see screenshot).
 
-![](https://raw.githubusercontent.com/christophsax/x13story/master/out/screenshot.png)
+![](https://raw.githubusercontent.com/christophsax/seasonalview/master/out/x13story.png)
 
 We see both static PDFs and interactive online stories as part of an
 ideal workflow that simplifies discussions on seasonal adjustment. A preliminary
@@ -50,12 +50,13 @@ If you are using R from another environment, use:
 To generate a **PDF**, you can use the <kbd>knitr</kbd> button in RStudio, or 
 run *knitr* from the console.
 
-To generate an **interactive story**, use the `viewer` function from the
-*x13story* package. The function accepts a local or a remote file path, so the
+To generate an **interactive story**, use the `view` function from the
+[seasonalview](https://CRAN.R-project.org/package=seasonalview) package. The function accepts a local or a remote file path, so the
 following downloads an X-13 story from the Internet and interactively displays
 it in the browser:
 
-    viewer("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
+    library(seasonalview)
+    view("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
 
 
 ### Sharing Stories
