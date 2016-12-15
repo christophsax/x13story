@@ -56,7 +56,7 @@ following downloads an X-13 story from the Internet and interactively displays
 it in the browser:
 
     library(seasonalview)
-    view("https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
+    view(story = "https://raw.githubusercontent.com/christophsax/x13story/master/inst/stories/x11.Rmd")
 
 
 ### Sharing Stories
