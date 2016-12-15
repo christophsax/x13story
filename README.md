@@ -15,7 +15,7 @@ The package allows you to render an *X-13 story*
 
 - or as an online story that can be manipulated interactively, see screenshot).
 
-![](https://raw.githubusercontent.com/christophsax/seasonalview/master/out/x13story.png)
+![](https://raw.githubusercontent.com/christophsax/seasonalview/master/img/x13story.png
 
 We see both static PDFs and interactive online stories as part of an
 ideal workflow that simplifies discussions on seasonal adjustment. A preliminary
