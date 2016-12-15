@@ -67,7 +67,7 @@ R offers the single most convenient way to discuss and exchange seasonal
 adjustment problems, as it relies on free open source tools that can be
 installed anywhere with a single line of code (see above).
 
-For sharing, the `viewer` function allows you to interactively inspect X-13 
+For sharing, the `view` function allows you to interactively inspect X-13 
 stories anywhere on the web. For example, you can put it to
 [GitHub Gist](https://gist.github.com/christophsax/713ba85ec7540541a140cb000189e190) and make the link available to anyone you
 want, even without setting up an account.
