@@ -20,7 +20,7 @@ m <- seas(AirPassengers,
      outlier.types = c("ao", "ls")
 )
 
-x13view(m, series = "main")
+x13page(m, series = "main")
 ```
 
 ### Example 1
@@ -49,7 +49,7 @@ m <- seas(AirPassengers,
      outlier.critical = 4
 )
 
-x13view(m, series = "main")
+x13page(m, series = "main")
 ```
 
 ### Example 2
@@ -69,7 +69,7 @@ m <- seas(AirPassengers,
      outlier.span = "1953.jan, 1958.dec"
 )
 
-x13view(m, series = "main")
+x13page(m, series = "main")
 ```
 
 ### Example 3
@@ -87,7 +87,7 @@ m <- seas(AirPassengers,
      outlier.span = "1953.jan, 1958.dec"
 )
 
-x13view(m, series = "main")
+x13page(m, series = "main")
 ```
 
 ### Example 4

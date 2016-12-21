@@ -26,7 +26,7 @@ For a more extensive description of the approach, see the
 Use `h2` header (`##`) as top headers, so you can wrap several stories in a
 book, separating them with `h1` headers (`#`).
 
-To initiate a new view in the interactive tool, use `x13view()`. The function
+To initiate a new view in the interactive tool, use `x13page()`. The function
 takes an object of class `"seas"` as its first argment, and a chararacter string
 describing the view as its second. For a list of all available views, see
 `?series`.
@@ -35,9 +35,9 @@ describing the view as its second. For a list of all available views, see
 ```{r, echo = FALSE, fig.cap = "A first X-13 view."}
 m <- seas(AirPassengers)
 
-# the 'x13view' function initializes an interactive X-13 view, or adds a 
+# the 'x13page' function initializes an interactive X-13 view, or adds a 
 # graph to a PDF. 
-x13view(m, "main")
+x13page(m, "main")
 ```
 
 ### A sub header
@@ -77,7 +77,7 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 m <- seas(myseries, x11 = "")
 
 # initializes a second X-13 view
-x13view(m, 'x11.seasonal')
+x13page(m, 'x11.seasonal')
 ```
 
 Which will set up a view based on your own data.

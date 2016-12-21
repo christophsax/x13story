@@ -35,12 +35,12 @@
 #' @export
 #' @import seasonal
 #' @examples
-#' view(story = system.file("stories", "outlier", package="x13story"))
-x13view <- function(m, series = "main"){
+#' view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+x13page <- function(m, series = "main"){
 
-  x13view.mode = getOption("x13view.mode", "pdf")
+  x13page.mode = getOption("x13page.mode", "pdf")
 
-  if (x13view.mode != "pdf") {
+  if (x13page.mode != "pdf") {
     ee <- parent.frame()
     all.obj <- ls(envir = ee)
     
@@ -62,14 +62,14 @@ x13view <- function(m, series = "main"){
     # server.R
     m$series.view = series
     z <- list(m = m, data = data)
-    class(z) <- "x13view"
+    class(z) <- "x13page"
 
-    l.x13view <- get("l.x13view", envir = getOption("x13view.env"))
+    l.x13page <- get("l.x13page", envir = getOption("x13page.env"))
 
-    if (is.null(l.x13view)){
-      assign("l.x13view", list(z), envir = getOption("x13view.env"))
+    if (is.null(l.x13page)){
+      assign("l.x13page", list(z), envir = getOption("x13page.env"))
     } else {
-      assign("l.x13view", c(l.x13view, list(z)), envir = getOption("x13view.env"))
+      assign("l.x13page", c(l.x13page, list(z)), envir = getOption("x13page.env"))
     }
   }
   

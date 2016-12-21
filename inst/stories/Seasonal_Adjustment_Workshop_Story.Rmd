@@ -30,9 +30,9 @@ from the same document...
 ```{r, echo = FALSE, fig.cap = "A first X-13 view."}
 m <- seas(AirPassengers)
 
-# the 'x13view' function initializes an interactive X-13 view, or adds a 
+# the 'x13page' function initializes an interactive X-13 view, or adds a 
 # graph to a PDF. 
-x13view(m, "main")
+x13page(m, "main")
 ```
 
 ### A default adjustment of the AirPassengers Series
@@ -65,7 +65,7 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 m <- seas(myseries, x11 = "")
 
 # initializes a second X-13 view
-x13view(m, 'x11.seasonal')
+x13page(m, 'x11.seasonal')
 ```
 
 ### An x11 adjustment of myseries

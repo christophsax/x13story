@@ -241,11 +241,11 @@ interactive online tool, as it is currently available
 [here](www.seasonal.website/x13story). As all seasonal adjustments in the online
 tool, views can be interactively manipulated by the user.
 
-To initialize a view, use the `x13view` function in an R chunk:
+To initialize a view, use the `x13page` function in an R chunk:
 
 ```
 m <- seas(AirPassengers, x11 = "")
-x13view(m, 'x11.seasonal')
+x13page(m, 'x11.seasonal')
 ```
 
 For a list of all available `series` options, see the help page of the `series`
@@ -255,7 +255,7 @@ to HTML and shown on the website. To see the available *stories* on the website,
 click the graduation cap on the top left.
 
 The *x13story* template described above has several examples on how to use the
-`x13view` function. 
+`x13page` function. 
 
 If you want to make your story publicly available, you can contribute it to the
 `x13story` package. To do so, you need to fork the

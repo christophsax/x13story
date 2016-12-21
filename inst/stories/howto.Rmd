@@ -12,7 +12,7 @@ output: x13story::x13story
 
 ```{r, echo = FALSE, results='asis'}
 m <- seas(AirPassengers)
-x13view(m, "main")
+x13page(m, "main")
 ```
 
 ## Discuss, Document, Popularize: An Ideal Workflow
@@ -186,7 +186,7 @@ prettyplot(x11.seasonal)
 
 ```{r, echo = FALSE, results='asis'}
 
-x13view(m, "main")
+x13page(m, "main")
 
 
 ```
@@ -202,8 +202,8 @@ m2 <- seas(AirPassengers)
   : like `plot`, but with a more Tufte-like look, a lower ink/information ratio and a font that is adjusted to the text font (palatino, by default). `prettyplot` has a method for the `seas` objects and for `ts` objects. If multiple series are supplied, it will also automatically add a legend, which is suited for black and white printing.
   
 
-```{r, echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the x13view function"}
-x13view(m2, "main")
+```{r, echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "An example of the x13page function"}
+x13page(m2, "main")
 
 ```
 
