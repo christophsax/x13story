@@ -18,6 +18,6 @@ x13page(m, series = "main", pdf = TRUE)
 Initialize an interacitve view
 }
 \examples{
-# view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+# view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 }
 

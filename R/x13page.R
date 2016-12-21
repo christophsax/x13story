@@ -5,13 +5,14 @@
 #'   \code{?series})
 #' @param pdf    logical, should a plot be drawn in pdf mode
 #' @export
+#' @importFrom graphics plot
 #' @examples
-#' # view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+#' # view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 x13page <- function(m, series = "main", pdf = TRUE){
 
   x13page.mode = getOption("x13page.mode", "pdf")
 
-  if (x13view.mode == "pdf") {  # storymode "pdf" "web"
+  if (x13page.mode == "pdf") {  # storymode "pdf" "web"
     # if (pdf.summary){
     #   prettysummary(m)
     # } 
@@ -20,13 +21,13 @@ x13page <- function(m, series = "main", pdf = TRUE){
     #   cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
     # }
     
-    if (pdf.series){
+    if (pdf){
       if (series == 'main') {
-        s <- cbind(raw = original(m), adjusted = final(m))
+        s <- cbind(raw = seasonal::original(m), adjusted = seasonal::final(m))
       } else {
         s <- series(m, series = series)
       }
-      prettify(plot(s, ylab = series, main = ""))
+      prettify(graphics::plot(s, ylab = series, main = ""))
     }
   } else {
     ee <- parent.frame()
