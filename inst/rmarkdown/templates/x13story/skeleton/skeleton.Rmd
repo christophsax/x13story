@@ -10,7 +10,8 @@ output: x13story::x13story
 
 ```{r, echo = FALSE, message = FALSE}
 # aspect ratio for time series
-knitr::opts_chunk$set(fig.width = 10, fig.height = 6)
+knitr::opts_chunk$set(fig.width = 9, fig.height = 5.5, 
+                      out.width='5in', fig.align = 'center')
 library(x13story)  # also loads seasonal
 ```
 
