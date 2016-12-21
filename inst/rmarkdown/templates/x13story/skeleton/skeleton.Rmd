@@ -8,15 +8,16 @@ abstract: >
 output: x13story::x13story
 ---
 
-
 ```{r, echo = FALSE, message = FALSE}
 # aspect ratio for time series
 knitr::opts_chunk$set(fig.width = 10, fig.height = 6)
+library(x13story)  # also loads seasonal
+```
 
 
-
-# also loads seasonal
-library(x13story)  
+```{r, echo = FALSE, fig.cap = "Captions are only shown in the PDF, not in the interactive story."}
+m <- seas(AirPassengers)
+x13page(m, "main")
 ```
 
 ## A main header
@@ -34,45 +35,23 @@ takes an object of class `"seas"` as its first argment, and a chararacter string
 describing the series shown on the page as its second. For a list of all 
 available series, see the `series` function from the seasonal package. 
 
+Everything you write after a call to `x13page()` will appeare on that page. To start a new page, simply invoke `x13page()` again.
 
 ```{r, echo = FALSE}
-m <- seas(AirPassengers)
-x13page(m, "main")
-
+x13page(m, "main", pdf = FALSE)
 ```
+
 
 By default `x13page()` will also inlclude a plot into a **PDF**, but this can be
 changed by setting `pdf = FALSE`.  If you want to include a customized graph in
 a PDF, the `prettify()` function allows you to give seasonal and R base plots a
-look that works well with the document template.
+look that works well with the document template. Note that this plot will not 
+appear in an interactive story:
 
 ```{r, echo = FALSE, fig.cap = "A pretty time series in my PDF."}
-prettify(plot(m, main = " "))
-
+prettify(plot(final(m), main = " "))
 ```
 
-You can use both interactive and PDF functions in the same doucument. If you
-render your document als a PDF, the interactive functions will be ingnored. If
-you render it as an interactive story, the PDF functions wiell be ignored.
-
-
-### A sub header
-
-You can use arbitrary code in your document, which is evaluated if not stated 
-otherwise:
-
-```
-dput(AirPassengers)
-
-``` 
-
-You can also use \LaTeX-style math both for PDFs and and the interactive view:
-
-$$X_t = T_t + S_t + I_t$$ 
-
-Inlined math, $E = mc^2$, is possible as well.
-
-You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
 
 ```{r, echo = FALSE, fig.cap = "A second X-13 view."}
 library(x13story)
@@ -96,7 +75,25 @@ m <- seas(myseries, x11 = "")
 x13page(m, 'x11.seasonal')
 ```
 
-```{r, echo = FALSE, fig.cap = "And and example of a pretty Monthplot in my PDF."}
-prettify(monthplot(m, main = " "))
 
+### A sub header
+
+You can use arbitrary code in your document. Note that evaluations of R code are
+not shown in interactive stories.
+
+```
+dput(AirPassengers)
+``` 
+
+You can also use \LaTeX-style math both for PDFs and and the interactive view:
+
+$$X_t = T_t + S_t + I_t$$ 
+
+Inlined math, $E = mc^2$, is possible as well.
+
+You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
+
+
+```{r, echo = FALSE, fig.cap = "And and example of a pretty QQ-plot in my PDF."}
+prettify(qqnorm(resid(m), main = ""))
 ```
