@@ -2,16 +2,18 @@
 % Please edit documentation in R/prettysummary.R
 \name{prettysummary}
 \alias{prettysummary}
-\title{A PDF summary function for seasonal}
+\title{A Prettier Summary}
 \usage{
 prettysummary(x, caption = NULL)
 }
 \arguments{
-\item{x}{an object of class \code{"seas"}}
+\item{x}{an object of class \code{seas}.}
 
-\item{caption}{character string containing the caption}
+\item{caption}{table caption (optional)}
+
+\item{...}{further arguments}
 }
 \description{
-A PDF summary function for seasonal
+To be used in X-13 story \code{.Rmd} files for PDF production.
 }
 

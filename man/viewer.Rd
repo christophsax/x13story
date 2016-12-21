@@ -2,23 +2,14 @@
 % Please edit documentation in R/viewer.R
 \name{viewer}
 \alias{viewer}
-\title{Local Display of Interactive Stories}
+\title{Deprecated Viewer Function}
 \usage{
-viewer(file, quiet = TRUE)
+viewer(x)
 }
 \arguments{
-\item{file}{character, path to the rmarkdown file containing an X-13 story.}
-
-\item{quiet}{logical, should the output of shiny be suppressed}
+\item{x}{character, path to the rmarkdown file containing an X-13 story.}
 }
 \description{
-Local Display of Interactive Stories
-}
-\examples{
-\dontrun{
-file <- system.file(package = "x13story", "stories", "x11.Rmd")
-viewer(file)
-}
-
+Deprecated Viewer Function
 }
 

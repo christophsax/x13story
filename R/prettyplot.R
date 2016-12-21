@@ -1,4 +1,4 @@
-#' A more Tufte-like plot
+#' A Prettier Plot
 #'
 #' @param x a time series
 #' @param ylab label (optional)

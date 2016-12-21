@@ -1,24 +1,6 @@
-# #' @export
-# xtable_seas_coef <- function (x, digits = max(3, getOption("digits") - 3), 
-#                               signif.stars = getOption("show.signif.stars"), ...) {
-  
-
-
-#   # cat("\nCall:\n", paste(deparse(x$call), sep = "\n", collapse = "\n"), "\n",
-#   #     sep = "")
-  
-#   if (is.null(coef(x))) {
-#     cat("\nNo Coefficients\n")
-#   } else {
-#     cat("\nCoefficients:\n")
-#     xtable:::xtable.summary.lm(summary(m))
-#   }
-# }
-
 
 seas_stats <- function (x, digits = max(3, getOption("digits") - 3), 
                               signif.stars = getOption("show.signif.stars"), ...) {
-
   z <- list()
 
   if (!is.null(x$spc$seats)){
@@ -70,11 +52,14 @@ seas_stats <- function (x, digits = max(3, getOption("digits") - 3),
 
 
 
-#' A PDF summary function for seasonal
+#' A Prettier Summary
 #'
-#' @param x an object of class \code{"seas"}
-#' @param caption character string containing the caption
-#' @export
+#' To be used in X-13 story \code{.Rmd} files for PDF production.
+#'
+#' @param x an object of class \code{seas}.
+#' @param caption table caption (optional)
+#' @param ... further arguments
+#' @export 
 prettysummary <- function(x, caption = NULL){
   stopifnot(inherits(x, "seas"))
 

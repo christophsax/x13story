@@ -24,7 +24,6 @@
 
 
 
-
 #' Initialize an interacitve view
 #'
 #' @param m an object of class \code{"seas"}
@@ -35,37 +34,13 @@
 #' @param pdf.series    logical, should a series be shown in pdf mode
 #' @export
 #' @import seasonal
-x13view <- function(m, series = "main", pdf.series = TRUE, pdf.call = FALSE, pdf.summary = FALSE){
+#' @examples
+#' view(story = system.file("stories", "outlier", package="x13story"))
+x13view <- function(m, series = "main"){
+
   x13view.mode = getOption("x13view.mode", "pdf")
 
-  if (x13view.mode == "pdf") {  # storymode "pdf" "web"
-
-    # probably drop the pdf mode for this function at all, its confusing.
-
-    
-    # , pdf.call = FALSE, pdf.series = FALSE, pdf.summary = FALSE
-
-
-
-    # m <- eval(parse(text = z$cstr), envir = globalenv())
-
-    if (pdf.summary){
-      prettysummary(m)
-    } 
-
-    if (pdf.call){
-      cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
-    }
-    
-    if (pdf.series){
-      if (series == 'main') {
-        s <- cbind(raw = original(m), adjusted = final(m))
-      } else {
-        s <- series(m, series = series)
-      }
-      prettyplot(s, ylab = series)
-    }
-  } else {
+  if (x13view.mode != "pdf") {
     ee <- parent.frame()
     all.obj <- ls(envir = ee)
     
@@ -97,6 +72,5 @@ x13view <- function(m, series = "main", pdf.series = TRUE, pdf.call = FALSE, pdf
       assign("l.x13view", c(l.x13view, list(z)), envir = getOption("x13view.env"))
     }
   }
-  
   
 }

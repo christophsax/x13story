@@ -2,7 +2,7 @@
 % Please edit documentation in R/prettyplot.R
 \name{prettyplot}
 \alias{prettyplot}
-\title{A more Tufte-like plot}
+\title{A Prettier Plot}
 \usage{
 prettyplot(x, ylab = NULL, family = "Palatino",
   legend.pos = "bottomright", ...)
@@ -19,6 +19,6 @@ prettyplot(x, ylab = NULL, family = "Palatino",
 \item{...}{further arguments}
 }
 \description{
-A more Tufte-like plot
+A Prettier Plot
 }
 
