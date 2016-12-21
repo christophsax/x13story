@@ -10,40 +10,55 @@ output: x13story::x13story
 
 
 ```{r, echo = FALSE, message = FALSE}
-# landscape aspect ratio for time series
+# aspect ratio for time series
 knitr::opts_chunk$set(fig.width = 10, fig.height = 6)
-# also load seasonal
+
+
+
+# also loads seasonal
 library(x13story)  
 ```
 
 ## A main header
 
 This is a template for X-13 stories, descriptions of seasonal adjustment
-discussions that can be turned into **PDFs** or into **interactive stories**.
+discussions that can be turned into PDFs or into interactive stories.
 For a more extensive description of the approach, see the
-[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf).
+[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/wrokflow.pdf).
 
 Use `h2` header (`##`) as top headers, so you can wrap several stories in a
 book, separating them with `h1` headers (`#`).
 
-To initiate a new view in the interactive tool, use `x13page()`. The function
+To initiate a new page in an **interactive story**, use `x13page()`. The function
 takes an object of class `"seas"` as its first argment, and a chararacter string
-describing the view as its second. For a list of all available views, see
-`?series`.
+describing the series shown on the page as its second. For a list of all 
+available series, see the `series` function from the seasonal package.
 
 
-```{r, echo = FALSE, fig.cap = "A first X-13 view."}
+```{r, echo = FALSE}
 m <- seas(AirPassengers)
-
-# the 'x13page' function initializes an interactive X-13 view, or adds a 
-# graph to a PDF. 
 x13page(m, "main")
+
 ```
+
+If you want to include a graph in a **PDF**, the `prettify()` function allows
+you to give seasonal and R base plots a look that works well with the document
+template.
+
+```{r, echo = FALSE, fig.cap = "A pretty time series in my PDF."}
+prettify(plot(m, main = " "))
+
+```
+
+You can use both interactive and PDF functions in the same doucument. If you
+render your document als a PDF, the interactive functions will be ingnored. If
+you render it as an interactive story, the PDF functions wiell be ignored.
+
 
 ### A sub header
 
-You can use arbitrary code in your document, which is not evaluated if used in
-an interactive story.
+You can use arbitrary code in your document, which is evaluated if not stated 
+otherwise:
 
 ```
 dput(AirPassengers)
@@ -80,28 +95,7 @@ m <- seas(myseries, x11 = "")
 x13page(m, 'x11.seasonal')
 ```
 
-Which will set up a view based on your own data.
+```{r, echo = FALSE, fig.cap = "And and example of a pretty Monthplot in my PDF."}
+prettify(monthplot(m, main = " "))
 
-`x13story` contains some utility functions that are useful for creating pdf's, but are of no use in the interactive view. These functions start with
-`pretty`:
-
-`prettyplot`
-  : like `plot`, but with a more Tufte-like look, a lower ink/information ratio and a font that is adjusted to the text font (palatino, by default). `prettyplot` has a method for the `seas` objects and for `ts` objects. If multiple series are supplied, it will also automatically add a legend, which is suited for black and white printing.
-
-`prettymonthplot`
-  : like `plot`, but again more Tufte-like. To be implemented.
-
-`prettysummary`
-  : like `summary`, but returning a nice Latex table. 
-
-Since the following two chuncks are `echo = FALSE` they won't be shown in both the PDF and the interactive view.
-
-
-```{r echo = FALSE, fig.cap = "An example of a pretty plot."}
-prettyplot(myseries)
 ```
-
-```{r, echo = FALSE, results='asis'}
-prettysummary(m, caption = "An example of a pretty summary.")
-```
-
