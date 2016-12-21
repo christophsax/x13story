@@ -4,7 +4,7 @@
 \alias{x13page}
 \title{Initialize an interacitve view}
 \usage{
-x13page(m, series = "main")
+x13page(m, series = "main", pdf = TRUE)
 }
 \arguments{
 \item{m}{an object of class \code{"seas"}}
@@ -12,16 +12,12 @@ x13page(m, series = "main")
 \item{series}{character string indicating which series to show (see
 \code{?series})}
 
-\item{pdf.summary}{logical, should a summary be shown in pdf mode}
-
-\item{pdf.call}{logical, should a call be shown in pdf mode}
-
-\item{pdf.series}{logical, should a series be shown in pdf mode}
+\item{pdf}{logical, should a plot be drawn in pdf mode}
 }
 \description{
 Initialize an interacitve view
 }
 \examples{
-view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+# view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 }
 

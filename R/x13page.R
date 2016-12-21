@@ -3,18 +3,32 @@
 #' @param m an object of class \code{"seas"}
 #' @param series character string indicating which series to show (see
 #'   \code{?series})
-#' @param pdf.summary  logical, should a summary be shown in pdf mode
-#' @param pdf.call   logical, should a call be shown in pdf mode
-#' @param pdf.series    logical, should a series be shown in pdf mode
+#' @param pdf    logical, should a plot be drawn in pdf mode
 #' @export
-#' @import seasonal
 #' @examples
-#' view(story = system.file("stories", "outlier.Rmd", package="x13story"))
-x13page <- function(m, series = "main"){
+#' # view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+x13page <- function(m, series = "main", pdf = TRUE){
 
   x13page.mode = getOption("x13page.mode", "pdf")
 
-  if (x13page.mode != "pdf") {
+  if (x13view.mode == "pdf") {  # storymode "pdf" "web"
+    # if (pdf.summary){
+    #   prettysummary(m)
+    # } 
+
+    # if (pdf.call){
+    #   cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
+    # }
+    
+    if (pdf.series){
+      if (series == 'main') {
+        s <- cbind(raw = original(m), adjusted = final(m))
+      } else {
+        s <- series(m, series = series)
+      }
+      prettify(plot(s, ylab = series, main = ""))
+    }
+  } else {
     ee <- parent.frame()
     all.obj <- ls(envir = ee)
     

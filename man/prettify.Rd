@@ -10,6 +10,10 @@ prettify(expr, family = "Palatino", grid = TRUE, box = FALSE)
 \item{expr}{An R expression, usually resulting in a plot}
 
 \item{family}{font family, to be matched with latex font}
+
+\item{grid}{logical, should a grid be drawn}
+
+\item{box}{logical, should plots have a surrounding box (\code{bty = "o"})}
 }
 \description{
 Prettier Plots (or Other Stuff, at Some Point)

@@ -2,9 +2,9 @@
 #' Prepare an .Rmd file for use in the interactive tools
 #' 
 #' @param file path
-#' @import rmarkdown
-#' @import markdown
-#' @import yaml
+#' @importFrom rmarkdown draft
+#' @importFrom markdown renderMarkdown
+#' @importFrom yaml yaml.load
 #' @export
 parse_x13story <- function(file){
   # file = "/Users/christoph/git/x13story/inst/stories/x11.Rmd"

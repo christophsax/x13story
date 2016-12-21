@@ -32,7 +32,7 @@ book, separating them with `h1` headers (`#`).
 To initiate a new page in an **interactive story**, use `x13page()`. The function
 takes an object of class `"seas"` as its first argment, and a chararacter string
 describing the series shown on the page as its second. For a list of all 
-available series, see the `series` function from the seasonal package.
+available series, see the `series` function from the seasonal package. 
 
 
 ```{r, echo = FALSE}
@@ -41,9 +41,10 @@ x13page(m, "main")
 
 ```
 
-If you want to include a graph in a **PDF**, the `prettify()` function allows
-you to give seasonal and R base plots a look that works well with the document
-template.
+By default `x13page()` will also inlclude a plot into a **PDF**, but this can be
+changed by setting `pdf = FALSE`.  If you want to include a customized graph in
+a PDF, the `prettify()` function allows you to give seasonal and R base plots a
+look that works well with the document template.
 
 ```{r, echo = FALSE, fig.cap = "A pretty time series in my PDF."}
 prettify(plot(m, main = " "))

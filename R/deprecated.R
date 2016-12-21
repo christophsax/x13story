@@ -4,5 +4,4 @@
 #' @export
 viewer <- function(x){ 
   stop("The viewer function is defunct. Use instead: \n\n  view(story = x)")
-  view(story = x)
 }

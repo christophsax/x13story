@@ -2,7 +2,10 @@
 #'
 #' @param expr  An R expression, usually resulting in a plot
 #' @param family font family, to be matched with latex font
+#' @param grid logical, should a grid be drawn
+#' @param box logical, should plots have a surrounding box (\code{bty = "o"})
 #' @export
+#' @importFrom graphics par
 #' @examples
 #' \dontrun{
 #' library(seasonal)
@@ -17,8 +20,8 @@
 #' prettify(qqnorm(resid(m), main = ""))
 #' }
 prettify <- function(expr, family = "Palatino", grid = TRUE, box = FALSE){
-  op <- par(family = family)
-  on.exit(par(op))
+  op <- graphics::par(family = family)
+  on.exit(graphics::par(op))
 
   sexpr <- substitute(expr)
 

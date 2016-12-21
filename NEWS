@@ -2,8 +2,7 @@
 --------------------------------------------------------------------------------
 
 - uses 'view' from seasonalview package to show interactive stories
-- x13page (renamed from x13view), does not produce pdf output anymore, but is 
-  interactive only
+- x13page (renamed from x13view)
 - universalv prettify() function to show all kind of R base plots nicely in a 
   PDF. See ?prettify
 - updated template
