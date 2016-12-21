@@ -2,7 +2,7 @@
 % Please edit documentation in R/prettify.R
 \name{prettify}
 \alias{prettify}
-\title{Prettier Plots (And Other Stuff, at Some Point)}
+\title{Prettier Plots (or Other Stuff, at Some Point)}
 \usage{
 prettify(expr, family = "Palatino", grid = TRUE, box = FALSE)
 }
@@ -12,7 +12,7 @@ prettify(expr, family = "Palatino", grid = TRUE, box = FALSE)
 \item{family}{font family, to be matched with latex font}
 }
 \description{
-Prettier Plots (And Other Stuff, at Some Point)
+Prettier Plots (or Other Stuff, at Some Point)
 }
 \examples{
 \dontrun{

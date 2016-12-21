@@ -8,6 +8,9 @@
 parse_x13story <- function(file){
   # file = "/Users/christoph/git/x13story/inst/stories/x11.Rmd"
  
+  # use namespace of rmarkdown somewhere, R CMD CHECK complains otherwise
+  if (FALSE) rmarkdown::draft() 
+
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
   knitr::purl(file, output=tempR, quiet = TRUE)
