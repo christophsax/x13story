@@ -222,8 +222,7 @@ New Document Symbol > R Markdown ... > From Template > X-13 Handout
 ```
 
 The *x13story* package comes with a bunch of functions designed to make the
-production of pretty PDFs easy. These functions start with `pretty_`:
-`prettyplot`, prettymonthplot` or `prettysummary`. A more extensive description
+production of pretty PDFs easy. A more extensive description
 with examples is given in the template, which explains its use.
 
 
@@ -248,23 +247,28 @@ m <- seas(AirPassengers, x11 = "")
 x13page(m, 'x11.seasonal')
 ```
 
-For a list of all available `series` options, see the help page of the `series`
-function in  the *seasonal* package. Basically, all possible output series from
-X-13 are available. The text after an R chunk, written in Markdown, is rendered
-to HTML and shown on the website. To see the available *stories* on the website,
-click the graduation cap on the top left.
-
-The *x13story* template described above has several examples on how to use the
+The *x13story* template described above has more examples on how to use the
 `x13page` function. 
 
-If you want to make your story publicly available, you can contribute it to the
-`x13story` package. To do so, you need to fork the
+To generate an **interactive story** from your Markdown document, use the
+`view` function from the
+[seasonalview](https://CRAN.R-project.org/package=seasonalview) package. The
+function accepts a local or a remote file  path, so the following downloads an
+X-13 story from the Internet and interactively displays it in the browser:
+
+    view(story = system.file("stories", "outlier.Rmd", package="x13story"))
+
+If you want to make your story publicly available, you can put it to a [GitHub
+Gist] (as described above). The `view` function accepts remote URLs, so you can
+share the corresponding one line R command with your friends.
+
+You can also contribute your story directly to the `x13story` package and the
+website. To do so, you need to fork the
 [package](https://github.com/christophsax/x13story) on GitHub, add your new
 story and send a pull request to the authors. Your story will be automatically
 checked for technical validity. After confirmation by one of the authors, it
-appears on the website. (If that appears too complicated, send your file to one
-of the authors. It is planned to add an offline version of the interactive tool
-to the *x13story* package, so that the look and feel can be tested locally.)
+appears on the website. (If that appears too complicated, just send your file to
+one of the authors. It is greatly appreachiated.)
 
 
 
