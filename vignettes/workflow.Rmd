@@ -7,7 +7,7 @@ abstract: >
   X-13ARIMA-SEATS is as easy as installing any other R package. Which paves the 
   path to a simple workflow of discussing and exchanging seasonal adjustment 
   problems. Additionally, our new *x13story* package allows to document and 
-  publish discussions both as a traditional documentation or as an interactive 
+  publish discussions both as a PDF documentation or as an interactive 
   online *story*.
 
 output: x13story::x13story
@@ -259,8 +259,9 @@ X-13 story from the Internet and interactively displays it in the browser:
     view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 
 If you want to make your story publicly available, you can put it to a [GitHub
-Gist] (as described above). The `view` function accepts remote URLs, so you can
-share the corresponding one line R command with your friends.
+Gist](https://gist.github.com) (as described above), or to any accessible place
+on the Web or in an intra-net. The `view` function accepts remote URLs, so you 
+can share the corresponding one line R command with your collaborators.
 
 You can also contribute your story directly to the `x13story` package and the
 website. To do so, you need to fork the
