@@ -9,3 +9,4 @@ travis
 \.git
 .git
 .DS_Store
+out

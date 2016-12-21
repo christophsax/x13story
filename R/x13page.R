@@ -27,7 +27,12 @@ x13page <- function(m, series = "main", pdf = TRUE){
       } else {
         s <- series(m, series = series)
       }
-      prettify(graphics::plot(s, ylab = series, main = ""))
+
+      # essentialy from prettify() which does not work in functions so far
+      op <- graphics::par(family = "Palatino")
+      on.exit(graphics::par(op))
+      graphics::plot(s, ylab = series, main = "", bty = "l")
+      graphics::grid()
     }
   } else {
     ee <- parent.frame()

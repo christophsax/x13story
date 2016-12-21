@@ -9,6 +9,7 @@
 - updated README.md
 - updated vignatte ('The paper') in '/x13story/vignettes/workflow.pdf'
 - all stories in 'inst/stories' updated to use new functions.
+- cleaned up NAMESPACE
 
 
 0.0.1  2016-04-21

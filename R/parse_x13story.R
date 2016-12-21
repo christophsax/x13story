@@ -3,6 +3,7 @@
 #' 
 #' @param file path
 #' @importFrom rmarkdown draft
+#' @importFrom seasonal seas
 #' @importFrom markdown renderMarkdown
 #' @importFrom yaml yaml.load
 #' @export
@@ -11,6 +12,7 @@ parse_x13story <- function(file){
  
   # use namespace of rmarkdown somewhere, R CMD CHECK complains otherwise
   if (FALSE) rmarkdown::draft() 
+  if (FALSE) seasonal::seas()
 
   # run R chunks im Rmd file and save snapshots in object.
   tempR <- tempfile(fileext = ".R")
