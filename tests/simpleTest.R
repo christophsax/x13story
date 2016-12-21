@@ -9,10 +9,10 @@ seas(AirPassengers)
 if (Sys.getenv("TRAVIS") != ""){
 
   library(x13story)
-  idir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "inst/stories")
+  idir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR", "."), "inst/stories")
 
   # after build, travis copies everything from out to the destination folder
-  odir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR"), "out")
+  odir <- file.path(Sys.getenv("TRAVIS_BUILD_DIR", "."), "out")
 
 
   message("Testing Skeleton")

@@ -34,6 +34,7 @@ parse_x13story <- function(file){
 
   # to check if everything works as expected
   expected.no.x13page <- length(l.x13page)
+  if (expected.no.x13page == 0) return(NULL)
 
   lines <- readLines(file)
   yaml.lines <- lines[2:(grep("---", lines)[2] - 1)]
