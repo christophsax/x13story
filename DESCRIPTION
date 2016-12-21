@@ -15,6 +15,7 @@ Imports:
     xtable,
     knitr,
     markdown,
+    rmarkdown,
     yaml
 License: GPL-3
 RoxygenNote: 5.0.1

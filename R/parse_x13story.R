@@ -3,6 +3,7 @@
 #' 
 #' @param file path
 #' @import rmarkdown
+#' @import markdown
 #' @import yaml
 #' @export
 parse_x13story <- function(file){

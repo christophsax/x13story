@@ -50,7 +50,7 @@ x <- structure(c(620L, 585L, 643L, 706L, 660L, 721L, 678L, 653L, 638L,
 ```
 
 ```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "The original series without any prior adjustment"}
-prettyplot(x, ylab = "retail sales")
+prettify(plot(x, ylab = "retail sales"))
 ```
 
 ## A first attemp at prior adjustment and model fitting
@@ -65,8 +65,8 @@ mA <- seas(x, transform.function="log",
              regression.aictest = "td")
 ```
 
-```{r, echo = FALSE, results='asis'}
-prettysummary(mA, caption = "Regressors when log transformation is used")
+```{r}
+summary(mA)
 ```
 
 ```{r, echo=FALSE, result = "asis"}
@@ -77,8 +77,8 @@ mB <- seas(x, transform.function="none",
              regression.aictest = "td")
 ```
 
-```{r, echo = FALSE, results='asis'}
-prettysummary(mB, caption = "Regressors fit when no transformation is used")
+```{r}
+summary(mB)
 ```
 
 ```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "The original series with locations of AO's plotted with vertical lines"}
@@ -118,7 +118,7 @@ mBE <- seas(x, transform.function="none",
 The location March 1997 is the largest change in final SA value when including the easter regressor; a difference of 67.94. 
 
 ```{r echo = FALSE, fig.width = 10, fig.height = 6, fig.cap = "1995-1999 original series with final SA with and without the Easter regressor included"}
-prettyplot(window(x, start=c(1995, 1), end=c(1999, 12)), ylab="value")
+prettify(plot(window(x, start=c(1995, 1), end=c(1999, 12)), ylab="value"))
 lines(window(final(mAE), start=c(1995, 1), end=c(1999, 12)), col="red")
 lines(window(final(mA), start=c(1995, 1), end=c(1999, 12)), col="blue")
 legend("topleft", 
