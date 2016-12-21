@@ -6,12 +6,14 @@ abstract: >
   This is a template for X-13 stories, descriptions of seasonal adjustment
   discussions that can be turned into **PDFs** or into **interactive stories**.
 output: x13story::x13story
+urlcolor: cyan
+linkcolor: cyan
 ---
 
 ```{r, echo = FALSE, message = FALSE}
 # aspect ratio for time series
 knitr::opts_chunk$set(fig.width = 9, fig.height = 5.5, 
-                      out.width='5in', fig.align = 'center')
+                      out.width='5.2in', fig.align = 'center')
 library(x13story)  # also loads seasonal
 ```
 
@@ -50,7 +52,7 @@ look that works well with the document template. Note that this plot will not
 appear in an interactive story:
 
 ```{r, echo = FALSE, fig.cap = "A pretty time series in my PDF."}
-prettify(plot(final(m), main = " "))
+prettify(plot(final(m), main = "", xlab = "", ylab = "Passengers, in 1000"))
 ```
 
 
@@ -96,5 +98,5 @@ You can include your own data into the code. Use `dput` to transform an existing
 
 
 ```{r, echo = FALSE, fig.cap = "And and example of a pretty QQ-plot in my PDF."}
-prettify(qqnorm(resid(m), main = ""))
+prettify(qqnorm(resid(m), main = "", xlab = ""))
 ```

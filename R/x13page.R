@@ -31,14 +31,19 @@ x13page <- function(m, series = "main", pdf = TRUE){
       # essentialy from prettify() which does not work in functions so far
       op <- graphics::par(family = "Palatino")
       on.exit(graphics::par(op))
-      graphics::plot(s, ylab = series, main = "", bty = "l", plot.type = "single", lwd = 1:2, col = 1:2)
+      graphics::plot(s, ylab = series, xlab = "", main = "", bty = "l", axes = FALSE, plot.type = "single", col = 1:NCOL(s))
       graphics::grid()
-      
-      ol.ts <- outlier(m)
-      sym.ts <- ol.ts
-      sym.ts[!is.na(sym.ts)] <- 3
-      points(final(m), pch=as.numeric(sym.ts))
-      text(final(m), labels=ol.ts, pos=3, cex=0.75, offset=0.4)
+      axis(1, tick = FALSE, family = "Palatino")
+      axis(2, tick = FALSE, family = "Palatino")  
+
+      if (series == 'main'){
+        ol.ts <- outlier(m)
+        sym.ts <- ol.ts
+        sym.ts[!is.na(sym.ts)] <- 3
+        points(final(m), pch=as.numeric(sym.ts))
+        text(final(m), labels=ol.ts, pos=3, cex=0.75, offset=0.4)
+      }
+
 
     }
   } else {
