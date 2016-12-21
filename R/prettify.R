@@ -32,14 +32,19 @@ prettify <- function(expr, family = "Palatino", grid = TRUE, box = FALSE){
   }
 
   if (!box){
-    is.plot <- vapply(exprlist, function(e) as.character(e[[1]]) %in% c("spectrum", "acf", "pacf", "plot", "qqnorm"), TRUE)
-    exprlist[is.plot] <- lapply(exprlist[is.plot], update_call, bty = "l")
 
     is.monthplot <- vapply(exprlist, function(e) as.character(e[[1]]) == "monthplot", TRUE)
     exprlist[is.monthplot] <- lapply(exprlist[is.monthplot], update_call, box = FALSE)
 
+    is.plot <- vapply(exprlist, function(e) as.character(e[[1]]) %in% c("spectrum", "acf", "pacf", "plot", "qqnorm"), TRUE)
+    exprlist[is.plot] <- lapply(exprlist[is.plot], update_call, bty = "n", axes = FALSE)
 
     lapply(exprlist, eval)
+
+    if (any(is.plot)){
+      axis(1, tick = FALSE, family = family)
+      axis(2, tick = FALSE, family = family)   
+    }
   }
 
   if (grid){
