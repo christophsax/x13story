@@ -100,3 +100,38 @@ You can include your own data into the code. Use `dput` to transform an existing
 ```{r, echo = FALSE, fig.cap = "And and example of a pretty QQ-plot in my PDF."}
 prettify(qqnorm(resid(m), main = "", xlab = ""))
 ```
+
+### Tables
+
+This is still a bit experimental and subject to further changes.
+
+You can add tables using the standard R Markdown syntax. The `xtable` function
+allows you to produce a nice PDF table. The following produces no output in
+interactive stories, since we have the summary (and the X-13 output) available
+all the time, so we can reference to them.
+
+The `data.frame` argument requires the latest dev Version of `seasonal`, which 
+is not yet on CRAN.
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# # xtable with reasonable options (we may do this differently at some point)
+# library(xtable)
+# options(xtable.include.rownames = FALSE, xtable.booktabs = TRUE)
+# xtable(head(iris, 4), caption = 'Iris data')
+```
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# m <- seas(x = AirPassengers, x11 = "")
+# mstat <- formatC(1:10, width=2, flag="0")
+# dta <- udg(m, paste0("f3.m", mstat), data.frame = TRUE)
+# dta$key <- paste0("M", mstat)
+# xtable(dta, caption = 'X-11 M Statistics')
+```
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# dta <- summary(m, data.frame = TRUE)
+# xtable(dta, caption = 'Coefficient Overview')
+```
+
+
+
