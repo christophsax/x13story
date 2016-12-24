@@ -6,57 +6,55 @@ abstract: >
   This is a template for X-13 stories, descriptions of seasonal adjustment
   discussions that can be turned into **PDFs** or into **interactive stories**.
 output: x13story::x13story
+urlcolor: cyan
+linkcolor: cyan
 ---
 
-
 ```{r, echo = FALSE, message = FALSE}
-# landscape aspect ratio for time series
-knitr::opts_chunk$set(fig.width = 10, fig.height = 6)
-# also load seasonal
-library(x13story)  
+# aspect ratio for time series
+knitr::opts_chunk$set(fig.width = 9, fig.height = 5.5, 
+                      out.width='5.2in', fig.align = 'center')
+library(x13story)  # also loads seasonal
+```
+
+
+```{r, echo = FALSE, fig.cap = "Captions are only shown in the PDF, not in the interactive story."}
+m <- seas(AirPassengers)
+x13page(m, "main")
 ```
 
 ## A main header
 
 This is a template for X-13 stories, descriptions of seasonal adjustment
-discussions that can be turned into **PDFs** or into **interactive stories**.
+discussions that can be turned into PDFs or into interactive stories.
 For a more extensive description of the approach, see the
-[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/x13story.pdf).
+[vignette](https://github.com/christophsax/x13story/raw/master/vignettes/wrokflow.pdf).
 
 Use `h2` header (`##`) as top headers, so you can wrap several stories in a
 book, separating them with `h1` headers (`#`).
 
-To initiate a new view in the interactive tool, use `x13view()`. The function
+To initiate a new page in an **interactive story**, use `x13page()`. The function
 takes an object of class `"seas"` as its first argment, and a chararacter string
-describing the view as its second. For a list of all available views, see
-`?series`.
+describing the series shown on the page as its second. For a list of all 
+available series, see the `series` function from the seasonal package. 
 
+Everything you write after a call to `x13page()` will appeare on that page. To start a new page, simply invoke `x13page()` again.
 
-```{r, echo = FALSE, fig.cap = "A first X-13 view."}
-m <- seas(AirPassengers)
-
-# the 'x13view' function initializes an interactive X-13 view, or adds a 
-# graph to a PDF. 
-x13view(m, "main")
+```{r, echo = FALSE}
+x13page(m, "main", pdf = FALSE)
 ```
 
-### A sub header
 
-You can use arbitrary code in your document, which is not evaluated if used in
-an interactive story.
+By default `x13page()` will also inlclude a plot into a **PDF**, but this can be
+changed by setting `pdf = FALSE`.  If you want to include a customized graph in
+a PDF, the `prettify()` function allows you to give seasonal and R base plots a
+look that works well with the document template. Note that this plot will not 
+appear in an interactive story:
 
+```{r, echo = FALSE, fig.cap = "A pretty time series in my PDF."}
+prettify(plot(final(m), main = "", xlab = "", ylab = "Passengers, in 1000"))
 ```
-dput(AirPassengers)
 
-``` 
-
-You can also use \LaTeX-style math both for PDFs and and the interactive view:
-
-$$X_t = T_t + S_t + I_t$$ 
-
-Inlined math, $E = mc^2$, is possible as well.
-
-You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
 
 ```{r, echo = FALSE, fig.cap = "A second X-13 view."}
 library(x13story)
@@ -77,31 +75,63 @@ myseries <- structure(c(112, 118, 132, 129, 121, 135, 148, 148, 136, 119,
 m <- seas(myseries, x11 = "")
 
 # initializes a second X-13 view
-x13view(m, 'x11.seasonal')
+x13page(m, 'x11.seasonal')
 ```
 
-Which will set up a view based on your own data.
 
-`x13story` contains some utility functions that are useful for creating pdf's, but are of no use in the interactive view. These functions start with
-`pretty`:
+### A sub header
 
-`prettyplot`
-  : like `plot`, but with a more Tufte-like look, a lower ink/information ratio and a font that is adjusted to the text font (palatino, by default). `prettyplot` has a method for the `seas` objects and for `ts` objects. If multiple series are supplied, it will also automatically add a legend, which is suited for black and white printing.
+You can use arbitrary code in your document. Note that evaluations of R code are
+not shown in interactive stories.
 
-`prettymonthplot`
-  : like `plot`, but again more Tufte-like. To be implemented.
+```
+dput(AirPassengers)
+``` 
 
-`prettysummary`
-  : like `summary`, but returning a nice Latex table. 
+You can also use \LaTeX-style math both for PDFs and and the interactive view:
 
-Since the following two chuncks are `echo = FALSE` they won't be shown in both the PDF and the interactive view.
+$$X_t = T_t + S_t + I_t$$ 
+
+Inlined math, $E = mc^2$, is possible as well.
+
+You can include your own data into the code. Use `dput` to transform an existing series in your workspace into R code:
 
 
-```{r echo = FALSE, fig.cap = "An example of a pretty plot."}
-prettyplot(myseries)
+```{r, echo = FALSE, fig.cap = "And and example of a pretty QQ-plot in my PDF."}
+prettify(qqnorm(resid(m), main = "", xlab = ""))
 ```
 
-```{r, echo = FALSE, results='asis'}
-prettysummary(m, caption = "An example of a pretty summary.")
+### Tables
+
+This is still a bit experimental and subject to further changes.
+
+You can add tables using the standard R Markdown syntax. The `xtable` function
+allows you to produce a nice PDF table. The following produces no output in
+interactive stories, since we have the summary (and the X-13 output) available
+all the time, so we can reference to them.
+
+The `data.frame` argument requires the latest dev Version of `seasonal`, which 
+is not yet on CRAN.
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# # xtable with reasonable options (we may do this differently at some point)
+# library(xtable)
+# options(xtable.include.rownames = FALSE, xtable.booktabs = TRUE)
+# xtable(head(iris, 4), caption = 'Iris data')
 ```
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# m <- seas(x = AirPassengers, x11 = "")
+# mstat <- formatC(1:10, width=2, flag="0")
+# dta <- udg(m, paste0("f3.m", mstat), data.frame = TRUE)
+# dta$key <- paste0("M", mstat)
+# xtable(dta, caption = 'X-11 M Statistics')
+```
+
+```{r results='asis', message=FALSE, echo=FALSE}
+# dta <- summary(m, data.frame = TRUE)
+# xtable(dta, caption = 'Coefficient Overview')
+```
+
+
 

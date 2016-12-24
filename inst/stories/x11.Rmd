@@ -14,7 +14,7 @@ output: x13story::x13story
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
 library(x13story)
 m <- seas(AirPassengers, x11 = "")
-x13view(m, series = "main")
+x13page(m, series = "main")
 ```
 
 ## Overview
@@ -57,7 +57,7 @@ How is this X-11 decomposition performed?
 
 
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
-x13view(m, series = "x11.trend")
+x13page(m, series = "x11.trend")
 ```
 
 ## Estimate a trend
@@ -83,7 +83,7 @@ movement. The only remaining movement should be either seasonal or irregular.
 
 
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
-x13view(m, series = "x11.seasonal")
+x13page(m, series = "x11.seasonal")
 ```
 
 ## Estimate seasonal component in the de-trended series
@@ -110,7 +110,7 @@ series, we have in essence an original estimate of the irregular component.
 
 
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
-x13view(m, series = "x11.seasadj")
+x13page(m, series = "x11.seasadj")
 ```
 ## Now we have our inital estimates 
 
@@ -128,7 +128,7 @@ $A_t = \widehat{T_t} + \widehat{I_t}$
 
 
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
-x13view(m, series = "x11.irregular")
+x13page(m, series = "x11.irregular")
 ```
 
 ## Estimate extreme values
@@ -161,7 +161,7 @@ month-to-month e.g.) Easter which can call March or April depending on the
 calendar
 
 ```{r, echo = FALSE, fig.width = 11, fig.height = 6}
-x13view(m, series = "x11.seasadj")
+x13page(m, series = "x11.seasadj")
 ```
 
 ## Now iterate the method

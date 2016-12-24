@@ -44,7 +44,7 @@ x <- structure(c(620L, 585L, 643L, 706L, 660L, 721L, 678L, 653L, 638L,
                  .Tsp = c(1992, 2015.4166666666, 12), class = "ts")
 
 m0 <- seas(x, x11 = "")
-x13view(m0, "series.span")
+x13page(m0, "series.span")
 ```
 
 ## A very seasonal series
@@ -72,7 +72,7 @@ mA <- seas(x, transform.function="log",
              outlier.types = "AO",
              regression.aictest = "td")
 
-x13view(mA, "main")
+x13page(mA, "main")
 
 
 ```
@@ -92,7 +92,7 @@ mB <- seas(x, transform.function="none",
              outlier.types = "AO",
              regression.aictest = "td")
 
-x13view(mB, "main")
+x13page(mB, "main")
 ```
 
 ## Now look at model with no transform selected 
@@ -108,7 +108,7 @@ mAE <- seas(x, transform.function="log",
                outlier.types = "AO",
                regression.aictest = "td, easter")
 
-x13view(mAE, "main")
+x13page(mAE, "main")
 ```
 ## Adding Easter Effects
 
@@ -125,7 +125,7 @@ mBE <- seas(x, transform.function="none",
                outlier.types = "AO",
                regression.aictest = "td, easter")
 
-x13view(mBE, "main")
+x13page(mBE, "main")
 ```
 
 ... or for model B
