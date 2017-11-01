@@ -19,6 +19,7 @@
 #' prettify(plot(density(resid(m)), main = ""))
 #' prettify(qqnorm(resid(m), main = ""))
 #' }
+#' 
 prettify <- function(expr, family = "Palatino", grid = TRUE, box = FALSE){
   op <- graphics::par(family = family)
   on.exit(graphics::par(op))
