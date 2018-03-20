@@ -1,6 +1,7 @@
 ---
-title: Discussing X-13ARIMA-SEATS in R
-author: James Livsey and Christoph Sax
+title: "Discussing X-13ARIMA-SEATS in R"
+author: "James Livsey and Christoph Sax"
+output: rmarkdown::html_vignette
 abstract: >
   This vignette shows how R can be used to simplify discussions on seasonal
   adjustment. Thanks to the R packages *seasonal* and *x13binary*, installing 
@@ -9,10 +10,11 @@ abstract: >
   problems. Additionally, our new *x13story* package allows to document and 
   publish discussions both as a PDF documentation or as an interactive 
   online *story*.
-
-output: x13story::x13story
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
 
 
 ## Introduction

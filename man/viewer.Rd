@@ -12,4 +12,3 @@ viewer(x)
 \description{
 Deprecated Viewer Function
 }
-

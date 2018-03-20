@@ -12,4 +12,3 @@ x13story(fig_width = 5)
 \description{
 Format for creating X-13 stories
 }
-

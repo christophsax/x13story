@@ -12,4 +12,3 @@ parse_x13story(file)
 \description{
 Prepare an .Rmd file for use in the interactive tools
 }
-
