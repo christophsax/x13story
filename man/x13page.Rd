@@ -20,4 +20,3 @@ Initialize an interacitve view
 \examples{
 # view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 }
-

@@ -1,4 +1,3 @@
-
 #' Prepare an .Rmd file for use in the interactive tools
 #' 
 #' @param file path

@@ -32,4 +32,3 @@ prettify(plot(density(resid(m)), main = ""))
 prettify(qqnorm(resid(m), main = ""))
 }
 }
-

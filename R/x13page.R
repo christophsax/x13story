@@ -5,7 +5,8 @@
 #'   \code{?series})
 #' @param pdf    logical, should a plot be drawn in pdf mode
 #' @export
-#' @importFrom graphics plot
+#' @importFrom graphics axis points text plot
+#' @importFrom seasonal outlier final
 #' @examples
 #' # view(story = system.file("stories", "outlier.Rmd", package="x13story"))
 x13page <- function(m, series = "main", pdf = TRUE){
@@ -13,13 +14,7 @@ x13page <- function(m, series = "main", pdf = TRUE){
   x13page.mode = getOption("x13page.mode", "pdf")
 
   if (x13page.mode == "pdf") {  # storymode "pdf" "web"
-    # if (pdf.summary){
-    #   prettysummary(m)
-    # } 
 
-    # if (pdf.call){
-    #   cat("Call:\n", paste(deparse(m$call), sep = "\n", collapse = "\n"))
-    # }
     
     if (pdf){
       if (series == 'main') {
